@@ -6,10 +6,9 @@
     "node": true
   },
   "extends": [
-    "plugin:vue/vue3-recommended",
-    "eslint:recommended",
-    "@vue/eslint-config-typescript/recommended",
-    "@vue/eslint-config-prettier",
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:nuxt/recommended",
+    "plugin:prettier/recommended",
     "plugin:vue-scoped-css/vue3-recommended"
   ],
   "parserOptions": {

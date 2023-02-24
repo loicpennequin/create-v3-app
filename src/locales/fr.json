@@ -1,8 +1,4 @@
 {
-  "errors": {
-    "500": "Une erreur est survenue"
-  },
-
   "zod:errors": {
     "invalid_type": "Expected {expected}, received {received}",
     "invalid_type_received_undefined": "Ce champ est requis",

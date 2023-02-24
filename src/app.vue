@@ -15,14 +15,6 @@ const { t, locale } = useI18n();
 </template>
 
 <style lang="postcss">
-@import 'open-props/postcss/normalize';
-@import 'open-props/media';
-@import '~/assets/styles/theme.css';
-
-html {
-  font-size: 16px;
-}
-
 body {
   background: var(--gradient-4);
   color: var(--text-1);

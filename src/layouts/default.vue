@@ -22,7 +22,7 @@ const isMd = useMediaQuery(`(max-width: ${openProps.sizeSm})`);
     <header>
       <h1>Create V3 App</h1>
 
-      <div class="actions">
+      <nav class="actions">
         <button
           @click="session?.user ? signOut() : signIn()"
           class="auth-button"
@@ -44,7 +44,7 @@ const isMd = useMediaQuery(`(max-width: ${openProps.sizeSm})`);
         <NuxtLink :to="switchLocalePath('fr')">
           <Icon name="circle-flags:fr" />
         </NuxtLink>
-      </div>
+      </nav>
     </header>
     <main><slot /></main>
 
@@ -94,7 +94,7 @@ h1 {
   background-clip: text;
 
   @media (--md-n-below) {
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-4);
     color: var(--text-1);
     -webkit-text-stroke: 0;
     grid-column: 1;
@@ -116,12 +116,16 @@ main {
   padding-inline: var(--size-4);
 }
 
-.actions {
+nav {
   grid-column: 3;
   display: flex;
   gap: var(--size-2);
   align-items: center;
   justify-self: flex-end;
+
+  @media (--md-n-below) {
+    font-size: var(--font-size-3);
+  }
 
   & :where(button, a) {
     display: flex;
@@ -146,6 +150,12 @@ main {
 
     &:hover {
       background: var(--surface-2);
+    }
+
+    @media (--md-n-below) {
+      aspect-ratio: 1;
+      padding: 0;
+      background-color: transparent;
     }
   }
 }

@@ -1,8 +1,5 @@
 import OpenProps from 'open-props';
 
-const lib = process.env.npm_lifecycle_event;
-const inlineMediaQueries = lib === 'lib:media' || lib === 'lib:supports';
-
 export default defineNuxtConfig({
   srcDir: 'src',
 
@@ -22,6 +19,12 @@ export default defineNuxtConfig({
     transpile: ['trpc-nuxt']
   },
 
+  typescript: {
+    typeCheck: true
+  },
+
+  css: ['open-props/postcss/normalize', '~/assets/styles/theme.css'],
+
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/device',
@@ -36,22 +39,8 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       './scripts/postcss-jit-fix.js': OpenProps,
-      'postcss-preset-env': {
-        stage: 0,
-        autoprefixer: false,
-        features: {
-          'logical-properties-and-values': false,
-          'prefers-color-scheme-query': false,
-          'gap-properties': false,
-          'custom-properties': false,
-          'place-properties': false,
-          'not-pseudo-class': false,
-          'focus-visible-pseudo-class': false,
-          'focus-within-pseudo-class': false,
-          'color-functional-notation': false,
-          'custom-media-queries': { preserve: inlineMediaQueries },
-          'double-position-gradients': false
-        }
+      'postcss-custom-media': {
+        preserve: false
       },
       'postcss-nesting': { noIsPseudoSelector: false }
     }
