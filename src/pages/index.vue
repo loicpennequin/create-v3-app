@@ -1,11 +1,16 @@
 <script setup lang="ts">
 const { t } = useI18n();
-const { data: session } = useSession();
+const { data: session, signIn, signOut } = useSession();
 </script>
 
 <template>
   <section>
-    <p>{{ t('greeting', { name: session?.user.name ?? t('anon') }) }}</p>
+    <p>
+      {{ t('greeting', { name: session?.user.name ?? t('anon') }) }}
+      <button @click="session?.user ? signOut() : signIn()" class="auth-button">
+        {{ t(session?.user ? 'signout' : 'signin') }}
+      </button>
+    </p>
     <div class="card-grid">
       <article>
         <h2>Nuxt</h2>
@@ -160,6 +165,11 @@ section > p {
   margin-inline: auto;
   text-align: center;
   margin-block-end: var(--size-4);
+
+  & button {
+    padding: var(--size-1) var(--size-3);
+    border-radius: var(--radius-pill);
+  }
 }
 
 .card-grid {
@@ -229,6 +239,8 @@ article {
   "en": {
     "greeting": "Hello {name} !",
     "anon": "there",
+    "signin": "Sign in",
+    "signout": "Sign off",
     "nuxt": {
       "description": "Well, you're here, so...duh."
     },
@@ -261,6 +273,9 @@ article {
   "fr": {
     "greeting": "Salut {name} !",
     "anon": "toi",
+    "footer": "Fait avec 💀 par {link}",
+    "signin": "Connexion",
+    "signout": "Deconnexion",
     "nuxt": {
       "description": "Ben vous êtes là dont...euh..."
     },

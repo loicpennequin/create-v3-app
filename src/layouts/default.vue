@@ -1,43 +1,22 @@
 <script setup lang="ts">
-import openProps from 'open-props';
+useI18n();
 
-const { t } = useI18n();
-const switchLocalePath = useSwitchLocalePath();
-
-const { data: session, signIn, signOut } = useSession();
-
-const colorMode = useColorMode();
-const colorModeIcon = computed(() =>
-  colorMode.preference === 'dark' ? 'ph:sun-fill' : 'ph:moon-fill'
+const trpc = useTrpc();
+const { data: title, suspense } = useQuery(['app title'], () =>
+  trpc.title.query()
 );
-const toggleColorMode = () => {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
-};
+onServerPrefetch(suspense);
 
-const isMd = useMediaQuery(`(max-width: ${openProps.sizeSm})`);
+const switchLocalePath = useSwitchLocalePath();
 </script>
 
 <template>
   <div class="layout">
     <header>
-      <h1>Create V3 App</h1>
+      <h1>{{ title }}</h1>
 
       <nav class="actions">
-        <button
-          @click="session?.user ? signOut() : signIn()"
-          class="auth-button"
-        >
-          <Icon
-            v-if="isMd"
-            :name="
-              session?.user ? 'ant-design:poweroff-outlined' : 'ri:user-3-fill'
-            "
-          />
-          <span v-else>{{ t(session?.user ? 'signout' : 'signin') }}</span>
-        </button>
-        <button @click="toggleColorMode">
-          <Icon :name="colorModeIcon" />
-        </button>
+        <DarkModeToggle />
         <NuxtLink :to="switchLocalePath('en')">
           <Icon name="circle-flags:uk" />
         </NuxtLink>
@@ -94,7 +73,7 @@ h1 {
   background-clip: text;
 
   @media (--md-n-below) {
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-3);
     color: var(--text-1);
     -webkit-text-stroke: 0;
     grid-column: 1;
@@ -147,15 +126,10 @@ nav {
     background-color: var(--surface-1);
     border-radius: var(--radius-pill);
     padding: var(--size-2) var(--size-3);
+    width: max-content;
 
     &:hover {
       background: var(--surface-2);
-    }
-
-    @media (--md-n-below) {
-      aspect-ratio: 1;
-      padding: 0;
-      background-color: transparent;
     }
   }
 }
@@ -164,14 +138,10 @@ nav {
 <i18n lang="json">
 {
   "en": {
-    "footer": "Made with 💀 by {link}",
-    "signin": "Sign in",
-    "signout": "Sign off"
+    "footer": "Made with 💀 by {link}"
   },
   "fr": {
-    "footer": "Fait avec 💀 par {link}",
-    "signin": "Connexion",
-    "signout": "Deconnexion"
+    "footer": "Fait avec 💀 par {link}"
   }
 }
 </i18n>
