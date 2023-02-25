@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.1.3
+
+### Patch Changes
+
+- [`b0eac61`](https://github.com/loicpennequin/create-v3-app/commit/b0eac6195209eec18092ce70cb8de5a85e0407f3) Thanks [@loicpennequin](https://github.com/loicpennequin)! - fixed tailwind easter egg image path
+
 ## 0.1.2
 
 ### Patch Changes
