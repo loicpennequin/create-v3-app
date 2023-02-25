@@ -13,14 +13,14 @@ jobs:
     if: ${{ github.repository_owner == 'loicpennequin' }}
     name: Create a PR for release workflow
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: Use PNPM
-        uses: pnpm/action-setup@v2.2.4
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
@@ -29,10 +29,10 @@ jobs:
           cache: "pnpm"
 
       - name: Install NPM Dependencies
-        run: pnpm install
+        run: yarn
 
       - name: Build the package
-        run: pnpm build:cli
+        run: yarn build:cli
 
       - name: Create Version PR or Publish to NPM
         id: changesets
