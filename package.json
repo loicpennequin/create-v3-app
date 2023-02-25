@@ -1,15 +1,43 @@
 {
   "name": "root",
   "private": true,
+  "version": "0.0.0",
+  "description": "Quickest way to generate a new nuxt application using the V3 stack",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loicpennequin/create-v3-app.git",
+    "directory": "cli"
+  },
+  "engines": {
+    "node": ">=14.16"
+  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "typecheck": "turbo typecheck",
+    "build:cli": "turbo --filter=create-v3-app build",
+    "build:www": "turbo --filter=www build",
+    "start:cli": "turbo --filter=create-v3-app start",
+    "start:www": "turbo --filter=www start",
+    "dev:cli": "turbo --filter=create-v3-app dev",
+    "dev:www": "turbo --filter=www dev",
+    "clean": "turbo clean && rm -rf node_modules",
+    "release": "changeset version",
+    "pub:beta": "cd cli && pnpm pub:beta",
+    "pub:release": "cd cli && pnpm pub:release"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
-    "turbo": "^1.7.0"
+    "turbo": "^1.7.0",
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.0",
+    "@manypkg/cli": "^0.20.0",
+    "@types/node": "^18.14.0",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5"
   }
 }
