@@ -1,6 +1,6 @@
 {
   "name": "create-v3-app",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CLI to generate nuxt application using the V3 stack",
   "license": "MIT",
   "repository": {
