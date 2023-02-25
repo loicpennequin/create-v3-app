@@ -10,6 +10,6 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@cv3a/www"],
+  "ignore": [],
   "changedFilePatterns": ["src/**", "template/**"]
 }
