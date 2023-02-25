@@ -24,7 +24,8 @@
     "dev:cli": "turbo --filter=create-v3-app dev",
     "dev:www": "turbo --filter=www dev",
     "clean": "turbo clean && rm -rf node_modules",
-    "release": "changeset version"
+    "release": "changeset version",
+    "publish": "changeset publish"
   },
   "workspaces": [
     "packages/*"
