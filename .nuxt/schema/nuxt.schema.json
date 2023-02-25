@@ -1,0 +1,73 @@
+{
+  "id": "#",
+  "properties": {
+    "appConfig": {
+      "id": "#appConfig",
+      "properties": {
+        "nuxtIcon": {
+          "title": "Nuxt Icon",
+          "description": "Configure the defaults of Nuxt Icon",
+          "id": "#appConfig/nuxtIcon",
+          "properties": {
+            "size": {
+              "title": "Icon Size",
+              "description": "Set the default icon size",
+              "tags": [
+                "@studioIcon material-symbols:format-size-rounded"
+              ],
+              "id": "#appConfig/nuxtIcon/size",
+              "default": "",
+              "type": "string"
+            },
+            "class": {
+              "title": "CSS Class",
+              "description": "Set the default CSS class",
+              "tags": [
+                "@studioIcon material-symbols:css"
+              ],
+              "id": "#appConfig/nuxtIcon/class",
+              "default": "",
+              "type": "string"
+            },
+            "aliases": {
+              "title": "Icon aliases",
+              "description": "Define Icon aliases to update them easily without code changes.",
+              "tags": [
+                "@studioIcon material-symbols:star-rounded",
+                "@studioInputObjectValueType icon"
+              ],
+              "tsType": "{ [alias: string]: string }",
+              "id": "#appConfig/nuxtIcon/aliases",
+              "default": {},
+              "type": "object"
+            }
+          },
+          "type": "object",
+          "default": {
+            "size": "",
+            "class": "",
+            "aliases": {}
+          }
+        }
+      },
+      "type": "object",
+      "default": {
+        "nuxtIcon": {
+          "size": "",
+          "class": "",
+          "aliases": {}
+        }
+      }
+    }
+  },
+  "type": "object",
+  "default": {
+    "appConfig": {
+      "nuxtIcon": {
+        "size": "",
+        "class": "",
+        "aliases": {}
+      }
+    }
+  }
+}

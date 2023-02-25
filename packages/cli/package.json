@@ -1,0 +1,64 @@
+{
+  "name": "create-v3-app",
+  "version": "0.0.1",
+  "description": "CLI to generate nuxt application using the V3 stack",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loicpennequin/create-v3-app.git",
+    "directory": "cli"
+  },
+  "keywords": [
+    "create-v3-app",
+    "vue",
+    "nuxt",
+    "tRPC",
+    "typescript"
+  ],
+  "type": "module",
+  "exports": "./dist/index.js",
+  "bin": {
+    "create-v3-app": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=14.16"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist .turbo node_modules",
+    "start": "node dist/index.js",
+    "lint": "eslint . --report-unused-disable-directives",
+    "lint:fix": "yarn lint --fix",
+    "format": "prettier --write --plugin-search-dir=. **/*.{cjs,mjs,ts,tsx,md,json} --ignore-path ../.gitignore --ignore-unknown --no-error-on-unmatched-pattern",
+    "format:check": "yarn format --check",
+    "release": "changeset version",
+    "pub:beta": "yarn build && npm publish --tag beta",
+    "pub:next": "yarn build && npm publish --tag next",
+    "pub:release": "yarn build && npm publish"
+  },
+  "dependencies": {
+    "@types/figlet": "^1.5.5",
+    "asciify-image": "^0.1.9",
+    "chalk": "5.2.0",
+    "commander": "^10.0.0",
+    "execa": "^7.0.0",
+    "figlet": "^1.5.2",
+    "fs-extra": "^11.1.0",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^9.1.4",
+    "ora": "6.1.2",
+    "sort-package-json": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "@types/gradient-string": "^1.1.2",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.14.0",
+    "prettier": "^2.8.4",
+    "tsup": "^6.6.3",
+    "type-fest": "^3.6.0",
+    "typescript": "^4.9.5"
+  }
+}
