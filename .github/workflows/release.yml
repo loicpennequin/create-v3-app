@@ -36,15 +36,11 @@ jobs:
       - name: Build the package
         run: yarn build:cli
 
-      - name: Create Version PR or Publish to NPM
+      - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@v1.4.1
+        uses: changesets/action@v1
         with:
-          commit: 'chore(release): version packages'
-          title: 'chore(release): version packages'
-          version: node .github/changeset-version.js
-          publish: npx changeset publish
+          publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-          NODE_ENV: 'production'
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
