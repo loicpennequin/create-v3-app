@@ -5,7 +5,7 @@ Please note that this is note a 1:1 port, as I have my disagreements with some t
 
 I try to keep this project as simple as possible, so you can start with just the boilerplate code, while at the same time providing great value to developers.
 
-⚠️ At the moment, this template is using the [Edge release](https://nuxt.com/docs/guide/going-further/edge-channel) of the nuxt package, because of a bug that breaks HMR and SSR on windows in the latest published version. Once `nuxt@3.2.3` lands, ths fix will be officially published and the version in this project `package.json` will be rectified.
+⚠️ At the moment (25/02/2023), this template is using the [Edge release](https://nuxt.com/docs/guide/going-further/edge-channel) of the nuxt package, because of a bug that breaks HMR and SSR on windows in the latest published version. Once `nuxt@3.2.3` lands, ths fix will be officially published and the version in this project `package.json` will be rectified.
 
 If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, well...I'm a random nobody and I don't have discord so sucks to be you lmao.
 
