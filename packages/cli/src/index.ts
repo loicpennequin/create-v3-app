@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createProject } from './createProject.js';
 import { initializeGit } from './git.js';
 import { logger, renderTitle } from './gui.js';
