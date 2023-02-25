@@ -16,7 +16,6 @@ const cleanupProjectDir = async (
 ) => {
   if (!fs.existsSync(projectDir)) return;
 
-  console.log(projectDir);
   const isEmpty = fs.readdirSync(projectDir).length === 0;
   const isCwd = projectName === '.';
 

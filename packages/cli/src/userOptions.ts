@@ -3,7 +3,7 @@ import { Merge } from 'type-fest';
 import inquirer from 'inquirer';
 import asciify from 'asciify-image';
 import { resolve } from 'path';
-import { CREATE_V3_APP, DEFAULT_APP_NAME } from './constants.js';
+import { CREATE_V3_APP, DEFAULT_APP_NAME, PKG_ROOT } from './constants.js';
 import { getUserPkgManager, validateAppName } from './utils.js';
 import { logger } from './gui.js';
 
@@ -135,7 +135,7 @@ const promptTailwind = async () => {
   });
 
   if (language === 'tailwind') {
-    const duck = await asciify(resolve(process.cwd(), 'src/assets/duck.jpg'), {
+    const duck = await asciify(resolve(PKG_ROOT, 'src/assets/duck.jpg'), {
       fit: 'box',
       width: 20,
       height: 20
