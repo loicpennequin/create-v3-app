@@ -264,7 +264,7 @@ article {
     },
     "misc": {
       "title": "...And many more !",
-      "note": "I can't take much credit, it's just all thode amazing nuxt modules."
+      "note": "I can't take much credits, it's just all those amazing nuxt modules."
     }
   },
   "fr": {

@@ -8,7 +8,7 @@
     "preview": "nuxt preview",
     "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
     "lint:fix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
-    "db:sync": "yarn prisma generate && dotenv -c yarn prisma db push",
+    "db:sync": "yarn prisma generate && yarn prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:ui": "prisma studio"
   },
