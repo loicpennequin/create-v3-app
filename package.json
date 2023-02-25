@@ -26,7 +26,8 @@
     "clean": "turbo clean && rm -rf node_modules",
     "release": "changeset version",
     "pub:beta": "cd cli && pnpm pub:beta",
-    "pub:release": "cd cli && pnpm pub:release"
+    "pub:release": "cd cli && pnpm pub:release",
+    "changeset": "changeset"
   },
   "workspaces": [
     "packages/*"
