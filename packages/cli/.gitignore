@@ -1,0 +1,4 @@
+template/.nuxt
+template/node_modules
+template/prisma/db.sqlite
+template/prisma/db.sqlite-journal

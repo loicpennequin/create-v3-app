@@ -1,3 +1,11 @@
+/**
+ * This files creates a zod error map to enable you to translate zod error messages.
+ * This is useful in case you would like to use it for client side for form validation
+ * The translations are located in /locales/<lang>.json
+ * You can also use a custom local error message for any error on any component using tje <i18n> blocks
+ * see https://i18n.nuxtjs.org/per-component-translations
+ */
+
 import { z } from 'zod';
 import { Composer } from 'vue-i18n';
 import { ZodIssueCode, ZodParsedType, defaultErrorMap } from 'zod';
@@ -9,11 +17,10 @@ const jsonStringifyReplacer = (_: string, value: any): any => {
   return value;
 };
 
-function joinValues<T extends any[]>(array: T, separator = ' | '): string {
-  return array
+const joinValues = <T extends any[]>(array: T, separator = ' | '): string =>
+  array
     .map(val => (typeof val === 'string' ? `'${val}'` : val))
     .join(separator);
-}
 
 const createErrorMap =
   (t: Composer['t']): typeof defaultErrorMap =>

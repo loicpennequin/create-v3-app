@@ -15,7 +15,9 @@ export default defineNuxtPlugin(nuxt => {
 
   const queryClient = new QueryClient({
     defaultOptions: {
-      queries: { staleTime: 30_000, retry: false, refetchOnWindowFocus: false }
+      queries: {
+        // Add your query client options here
+      }
     }
   });
   const options: VueQueryPluginOptions = { queryClient };
