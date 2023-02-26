@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.1.4
+
+### Patch Changes
+
+- [`2d6c61e`](https://github.com/loicpennequin/create-v3-app/commit/2d6c61ee42f862cf0f7263fc4887bc5e9890bfb2) Thanks [@loicpennequin](https://github.com/loicpennequin)! - improved template
+
 ## 0.1.3
 
 ### Patch Changes
