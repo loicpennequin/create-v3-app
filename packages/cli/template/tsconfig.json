@@ -1,12 +1,5 @@
 {
   "extends": "./.nuxt/tsconfig.json",
-  "include": [
-    "./.nuxt/typed-router/typed-router.d.ts",
-    "./.nuxt/nuxt.d.ts",
-    "./src/auth.d.ts",
-    "./**/*",
-    "./src/**/*"
-  ],
   "compilerOptions": {
     "types": ["@nuxt/types", "@nuxtjs/i18n"]
   }

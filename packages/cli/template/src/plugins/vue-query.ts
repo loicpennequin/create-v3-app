@@ -1,3 +1,7 @@
+/**
+ * this files sets up the vue-query client, and takes care of the cache serialization / deserialization between SSR and CSR
+ */
+
 import type {
   DehydratedState,
   VueQueryPluginOptions

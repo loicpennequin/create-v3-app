@@ -2,9 +2,7 @@
 useI18n();
 
 const trpc = useTrpc();
-const { data: title, suspense } = useQuery(['app title'], () =>
-  trpc.title.query()
-);
+const { data: title, suspense } = useQuery(['title'], () => trpc.title.query());
 onServerPrefetch(suspense);
 
 const switchLocalePath = useSwitchLocalePath();

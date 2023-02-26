@@ -1,3 +1,10 @@
+/*
+ Define your own css variables in this file
+ You can define semantic variables derived from open props variables, and they will automatically be added to your bundle
+ They wil lalso be provided during autocompletion in css files or vue SFC style blocks in VS code if you have the CSS Var complete extension
+ To add other files to the autocompletion, edit the file located at .vscode/settings.json
+*/
+
 html:not(.dark) {
   --link: var(--indigo-7);
   --link-visited: var(--link);
