@@ -1,10 +1,10 @@
 {
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
-    "./src/assets/styles/theme.css"
+    "./packages/docs/src/styles/theme.css"
   ],
 
   "cssvar.ignore": [],
 
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "vue"]
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "vue", "astro"]
 }

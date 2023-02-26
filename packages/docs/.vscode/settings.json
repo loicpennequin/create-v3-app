@@ -6,5 +6,5 @@
 
   "cssvar.ignore": [],
 
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "vue"]
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "vue", "astro"]
 }
