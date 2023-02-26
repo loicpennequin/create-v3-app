@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sprite from 'astro-icon';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout title="Create V3 App.">
+  <Hero />
+
+  <div id="install-command">
+    <code>npx create-v3-app@latest</code>
+
+    <button>
+      <Sprite name="mdi:content-copy" aria-hidden="true" />
+    </button>
+  </div>
+</Layout>
+
+<script>
+  const copyToClipboard = async () => {
+    console.log('?');
+    await navigator.clipboard.writeText(
+      document.querySelector<HTMLElement>('#install-command > code')!.innerText
+    );
+
+    const wrapper = document.getElementById('install-command')!;
+    wrapper.dataset.copied = 'true';
+    setTimeout(() => {
+      wrapper.dataset.copied = undefined;
+    }, 2000);
+  };
+
+  document
+    .querySelector('#install-command button')
+    ?.addEventListener('click', copyToClipboard);
+</script>
+
+<style>
+  #install-command {
+    padding: var(--size-3);
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+    width: fit-content;
+    margin-inline: auto;
+    margin-block-start: var(--size-8);
+    border-radius: var(--radius-3);
+    border: solid 3px var(--surface-4);
+    background-color: var(--surface-2);
+    font-size: var(--font-size-2);
+    transition: all 0.5s;
+
+    &[data-copied='true'] {
+      background-color: var(--green-2);
+      color: var(--green-8);
+      border-color: var(--green-8);
+    }
+
+    & code {
+      background-color: transparent;
+    }
+
+    & button {
+      background-color: transparent;
+      transition: transform 0.2s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    & svg {
+      width: 1.25rem;
+      aspect-ratio: 1;
+    }
+  }
+</style>

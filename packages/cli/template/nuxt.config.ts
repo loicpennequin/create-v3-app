@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     typeCheck: 'build'
   },
 
-  css: ['open-props/postcss/normalize', '~/assets/styles/theme.css'],
+  css: ['open-props/postcss/normalize', '~/styles/theme.css'],
 
   modules: [
     '@nuxtjs/i18n',

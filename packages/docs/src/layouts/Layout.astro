@@ -1,0 +1,116 @@
+---
+import '../styles/theme.css';
+import Container from '../components/Container.astro';
+import { Sprite } from 'astro-icon';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Sprite.Provider>
+      <Container as="header">
+        <h1><a href="/">Create v3 app</a></h1>
+
+        <nav>
+          <ul>
+            <li><a href="/docs">Docs</a></li>
+            <li>
+              <a
+                href="https://github.com/loicpennequin/create-v3-app"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Sprite name="mdi:github" aria-hidden="true" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </Container>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer>
+        Made with 💀 by
+        <a
+          href="https://github.com/loicpennequin"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Daria aka "CEO of Based"
+        </a>
+      </footer>
+    </Sprite.Provider>
+  </body>
+</html>
+<style is:global>
+  @import 'open-props/postcss/normalize';
+  body {
+    background: var(--surface-1);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    color: var(--text-1);
+  }
+
+  body > header {
+    padding-block: var(--size-5);
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+  }
+
+  body > header > h1 {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-5);
+  }
+
+  body > header a,
+  body > header a:visited {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+  body > header *:not(h1) a:hover {
+    color: var(--text-2);
+  }
+
+  body > header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--size-4);
+  }
+
+  body > header nav button {
+    background: transparent;
+  }
+
+  body > header nav svg {
+    aspect-ratio: 1;
+    width: 1.5em;
+  }
+
+  body > footer {
+    padding: var(--size-4);
+    text-align: center;
+  }
+</style>

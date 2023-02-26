@@ -1,0 +1,25 @@
+{
+  "name": "@cv3a/docs",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.0.15",
+    "astro-icon": "^0.8.0",
+    "open-props": "^1.5.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.15",
+    "postcss-custom-media": "^9.1.2",
+    "postcss-jit-props": "^1.0.12",
+    "postcss-nesting": "^11.2.1"
+  }
+}

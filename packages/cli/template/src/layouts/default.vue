@@ -25,19 +25,17 @@ const switchLocalePath = useSwitchLocalePath();
     </header>
     <main><slot /></main>
 
-    <footer>
-      <i18n-t keypath="footer">
-        <template #link>
-          <a
-            href="https://github.com/loicpennequin"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Daria aka "CEO of Based"
-          </a>
-        </template>
-      </i18n-t>
-    </footer>
+    <i18n-t keypath="footer">
+      <template #link>
+        <a
+          href="https://github.com/loicpennequin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Daria aka "CEO of Based"
+        </a>
+      </template>
+    </i18n-t>
   </div>
 </template>
 

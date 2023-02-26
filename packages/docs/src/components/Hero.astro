@@ -1,0 +1,110 @@
+---
+import { Sprite } from 'astro-icon';
+import Container from '../components/Container.astro';
+import homeMeme from '../assets/img/home-meme.jpg';
+---
+
+<Container class="hero" as="section">
+  <div>
+    <p>We fixed full stack <span aria-hidden="true">😱</span></p>
+    <p>
+      The best way to start a blazingly fast, fullstack Nuxt app as a software
+      engineer in 2023 (NOT CLICKBAIT)
+    </p>
+
+    <footer>
+      <a href="/docs">Getting Started</a>
+      <a
+        href="https://github.com/loicpennequin/create-v3-app"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Github
+        <Sprite name="octicon:link-external-16" aria-hidden="true" />
+      </a>
+    </footer>
+  </div>
+  <img src={homeMeme} alt="spitting facts about the state of web development" />
+</Container>
+
+<style>
+  @import 'open-props/media';
+  .hero {
+    max-width: var(--size-lg);
+    width: 100%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    place-content: center;
+    gap: var(--size-3);
+
+    @media (--md-n-below) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .hero > div:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--size-3);
+  }
+  .hero p:nth-of-type(1) {
+    color: transparent;
+    background: var(--gradient-24);
+    background-clip: text;
+    font-size: var(--font-size-9);
+    font-weight: var(--font-weight-8);
+    margin: 0;
+    line-height: var(--font-lineheight-0);
+
+    & span {
+      color: var(--text-1);
+    }
+  }
+  .hero p:nth-of-type(2) {
+    font-size: var(--font-size-4);
+  }
+
+  .hero {
+    & img {
+      filter: saturate(150%) contrast(200%);
+    }
+
+    & footer {
+      display: flex;
+      justify-content: center;
+      gap: var(--size-6);
+      margin-block-start: var(--size-6);
+    }
+  }
+
+  .hero footer a {
+    color: inherit;
+    display: flex;
+    gap: var(--size-1);
+    padding: var(--size-2) var(--size-3);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-6);
+  }
+  .hero footer svg {
+    width: 1.2rem;
+    aspect-ratio: 1;
+  }
+  .hero footer a:nth-of-type(1) {
+    background: var(--gradient-4);
+  }
+  .hero footer a:nth-of-type(1):hover {
+    filter: brightness(1.05);
+  }
+  .hero footer a:nth-of-type(2) {
+    border: solid 1px var(--gray-5);
+    background: var(--surface-1);
+  }
+  .hero footer a:nth-of-type(2):hover {
+    background: var(--surface-2);
+  }
+</style>
