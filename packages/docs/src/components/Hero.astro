@@ -122,10 +122,6 @@ import homeMeme from '../assets/img/home-meme.jpg';
       width: 1.2rem;
       aspect-ratio: 1;
     }
-
-    &:hover {
-      background: var(--surface-2);
-    }
   }
 
   .footer-link {
@@ -141,14 +137,17 @@ import homeMeme from '../assets/img/home-meme.jpg';
     &:nth-of-type(1) {
       background: var(--gradient-4);
       color: var(--gray-10);
+      &:hover {
+        filter: brightness(1.05);
+      }
     }
 
-    &:nth-of-type(1):hover {
-      filter: brightness(1.05);
-    }
     &:nth-of-type(2) {
       border: solid 1px var(--gray-5);
       background: var(--surface-1);
+      &:hover {
+        background: var(--surface-2);
+      }
     }
   }
 </style>

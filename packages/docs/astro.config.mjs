@@ -8,10 +8,6 @@ export default defineConfig({
       [
         rehypeAutolinkHeadings,
         {
-          properties: {
-            class: 'heading-link heading-link--hidden---effects',
-            'data-heading-link': true
-          },
           behavior: 'wrap'
         }
       ]

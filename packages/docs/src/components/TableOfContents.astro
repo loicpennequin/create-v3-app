@@ -1,0 +1,90 @@
+---
+import type { MarkdownHeading } from 'astro';
+import type { ToCEntry } from '../types';
+import TableOfContentEntry from './TableOfContentEntry.astro';
+
+export interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+const headingsWithChildren: ToCEntry[] = [];
+
+headings.forEach((heading, index) => {
+  const prev = headingsWithChildren[index - 1];
+  const entry: ToCEntry = { ...heading, children: [] };
+  headingsWithChildren.push(entry);
+
+  if (!prev) return;
+  if (prev.depth < entry.depth) {
+    prev.children.push(entry);
+    entry.parent = prev;
+  } else if (prev.depth === entry.depth) {
+    entry.parent = prev.parent;
+    prev.parent?.children.push(entry);
+  }
+});
+
+const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
+---
+
+<script>
+  const toc = document.getElementById('toc')!;
+
+  toc.querySelectorAll<HTMLAnchorElement>('ul a').forEach(link => {
+    const targetEl = document.getElementById(new URL(link.href).hash.slice(1));
+    if (!targetEl) return;
+
+    new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        link.dataset.inViewport = String(entry.isIntersecting);
+
+        if (!entry.isIntersecting) {
+          link.dataset.active = 'false';
+        }
+        const visibleElements = [
+          ...toc.querySelectorAll<HTMLAnchorElement>(
+            '[data-in-viewport="true"]'
+          )
+        ];
+
+        visibleElements.forEach((el, index) => {
+          el.dataset.active = String(index === 0);
+        });
+      });
+    }).observe(targetEl!);
+  });
+</script>
+
+<Fragment>
+  <h2>Table of Contents</h2>
+  <ul id="toc">
+    {
+      rootHeadings.map(heading => (
+        <TableOfContentEntry entry={heading} depth={0} />
+      ))
+    }
+  </ul>
+</Fragment>
+
+<style>
+  h2 {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-5);
+    margin-block-end: var(--size-2);
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  #toc,
+  #toc :global(ul) {
+    list-style: none;
+  }
+
+  #toc :global([data-active='true']) {
+    background: var(--surface-3);
+  }
+</style>

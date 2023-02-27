@@ -1,0 +1,66 @@
+---
+const currentPage = Astro.url.pathname;
+
+const hasTrailing = currentPage.endsWith('/');
+const currentPageMatch = currentPage.slice(
+  1,
+  hasTrailing ? -1 : currentPage.length
+);
+
+type MenuItem = {
+  href: string;
+  label: string;
+};
+
+const menu: MenuItem[] = [
+  {
+    href: '/docs/introduction',
+    label: 'Introduction'
+  },
+  {
+    href: '/docs/getting-started',
+    label: 'Getting Started'
+  }
+];
+
+const isActive = (item: MenuItem) => currentPageMatch === item.href.slice(1);
+---
+
+<nav>
+  <ul>
+    {
+      menu.map(item => (
+        <li>
+          <a href={item.href} class={isActive(item) ? 'active' : ''}>
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  ul {
+    list-style: none;
+    padding-inline: var(--size-3);
+  }
+
+  li + li {
+    margin-block-start: var(--size-2);
+  }
+
+  a,
+  a:visited {
+    color: inherit;
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.active {
+    background: var(--surface-3);
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import type { ToCEntry } from '../types';
+
+export interface Props {
+  entry: ToCEntry;
+  depth: number;
+}
+const { entry, depth } = Astro.props;
+---
+
+<li style={{ '--depth': depth }}>
+  <a href={`#${entry.slug}`}>{entry.text}</a>
+
+  {
+    entry.children.length > 0 && (
+      <ul>
+        {entry.children.map(child => (
+          <Astro.self entry={child} depth={depth + 1} />
+        ))}
+      </ul>
+    )
+  }
+</li>
+
+<style>
+  ul {
+    padding-inline-start: 0;
+  }
+
+  li {
+    padding: 0;
+  }
+  a {
+    padding-inline-start: calc(var(--size-2) + var(--depth) * 2ch);
+    display: block;
+
+    &,
+    &:visited {
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+</style>

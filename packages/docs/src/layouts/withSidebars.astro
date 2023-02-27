@@ -6,6 +6,8 @@ import Container from '../components/Container.astro';
 import Header from '../components/Header.astro';
 import SkipToContent from '../components/SkipToContent.astro';
 import { Sprite } from 'astro-icon';
+import TableOfContents from '../components/TableOfContents.astro';
+import LeftNavigation from '../components/LeftNavigation.astro';
 
 export interface Props {
   title: string;
@@ -13,7 +15,7 @@ export interface Props {
 }
 
 const { title, headings } = Astro.props;
-console.log(headings);
+const currentPage = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -31,22 +33,15 @@ console.log(headings);
       <Container class="layout">
         <Header />
 
-        <aside>Navigation</aside>
+        <aside>
+          <LeftNavigation />
+        </aside>
 
         <main id="content">
           <slot />
         </main>
-        <aside class="toc">
-          <h2>Table of Contents</h2>
-          <ul>
-            {
-              headings.map(heading => (
-                <li>
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
-                </li>
-              ))
-            }
-          </ul>
+        <aside>
+          <TableOfContents headings={headings} />
         </aside>
 
         <footer>
@@ -81,34 +76,10 @@ console.log(headings);
     text-align: center;
   }
 
-  .toc {
+  .layout > aside {
     align-self: start;
     position: sticky;
-    top: 4.5%;
+    top: 5rem;
     z-index: 2;
-
-    & > h2 {
-      font-size: var(--font-size-3);
-      font-weight: var(--font-weight-5);
-      margin-block-end: var(--size-2);
-    }
-
-    & ul,
-    a {
-      padding: 0;
-    }
-
-    & a,
-    a:visited {
-      color: inherit;
-    }
-
-    & a:hover,
-    a:focus-visible {
-      text-decoration: underline;
-    }
-    & ul {
-      list-style: none;
-    }
   }
 </style>
