@@ -52,7 +52,6 @@ import homeMeme from '../assets/img/home-meme.jpg';
     grid-template-columns: repeat(2, minmax(auto, 1fr));
     place-content: center;
     gap: var(--size-3);
-    perspective: 600px;
     transform-style: preserve-3d;
 
     @media (--md-n-below) {
@@ -87,7 +86,7 @@ import homeMeme from '../assets/img/home-meme.jpg';
       transform: rotateY(-5deg);
     }
     to {
-      transform: rotateY(2deg);
+      transform: rotateY(3deg);
     }
   }
   .image-wrapper {
@@ -105,6 +104,9 @@ import homeMeme from '../assets/img/home-meme.jpg';
     }
   }
 
+  figure {
+    perspective: 600px;
+  }
   figcaption {
     margin-block-start: var(--size-4);
     text-align: center;

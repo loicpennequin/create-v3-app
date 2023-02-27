@@ -11,6 +11,25 @@ const { class: className, as = 'div' } = Astro.props;
 const Tag = as;
 ---
 
+<script>
+  const LOCAL_STORAGE_KEY = 'dark-mode';
+  const html = document.documentElement;
+
+  const isDarkMode = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) as any);
+  if (isDarkMode) {
+    html.classList.add('dark');
+  }
+
+  document.getElementById('dark-mode-toggle')!.addEventListener('click', () => {
+    html.classList.toggle('dark');
+
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY,
+      html.classList.contains('dark') as any
+    );
+  });
+</script>
+
 <header>
   <Container class="inner">
     <h1><a href="/">Create V3 app</a></h1>
@@ -28,12 +47,20 @@ const Tag = as;
             <Sprite name="mdi:github" aria-hidden="true" />
           </a>
         </li>
+        <li>
+          <button id="dark-mode-toggle">
+            <Sprite name="ph:moon-fill" />
+            <Sprite name="ph:sun-fill" />
+          </button>
+        </li>
       </ul>
     </nav>
   </Container>
 </header>
 
 <style>
+  @import 'open-props/media';
+
   header {
     position: sticky;
     top: 0;
@@ -78,6 +105,33 @@ const Tag = as;
     & nav svg {
       aspect-ratio: 1;
       width: 1.5em;
+    }
+  }
+
+  button {
+    display: block;
+
+    & > svg:nth-of-type(2) {
+      display: none;
+    }
+    @media (--OSdark) {
+      & > svg:nth-of-type(1) {
+        display: none;
+      }
+      & > svg:nth-of-type(2) {
+        display: block;
+      }
+    }
+  }
+
+  :global(html.dark) {
+    & button {
+      & > svg:nth-of-type(1) {
+        display: none;
+      }
+      & > svg:nth-of-type(2) {
+        display: block;
+      }
     }
   }
 </style>

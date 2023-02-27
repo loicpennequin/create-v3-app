@@ -16,10 +16,7 @@ const { title } = Astro.props;
     </header>
 
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
-      reiciendis. Voluptas totam quam laboriosam illo aperiam dolores. Quaerat
-      vitae veritatis delectus omnis assumenda sit eveniet libero repudiandae
-      nam. Voluptas, explicabo.
+      <slot name="description" />
     </p>
 
     <footer>Learn more</footer>
@@ -36,6 +33,7 @@ const { title } = Astro.props;
     background-position: -50% -50%;
     transition: background-size 0.2s ease-in;
     border: solid 1px var(--border);
+    display: flex;
 
     &:hover,
     &:focus-within {
@@ -83,6 +81,7 @@ const { title } = Astro.props;
 
     & footer {
       text-align: right;
+      margin-block-start: auto;
     }
   }
 </style>

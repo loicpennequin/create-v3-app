@@ -5,13 +5,13 @@ import Hero from '../components/Hero.astro';
 import TechGrid from '../components/TechGrid.astro';
 ---
 
-<script>
+<script defer>
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(
-      document.querySelector<HTMLElement>('#install-command > code')!.innerText
+      document.querySelector<HTMLElement>('#install-command > code').innerText
     );
 
-    const wrapper = document.getElementById('install-command')!;
+    const wrapper = document.getElementById('install-command');
     wrapper.dataset.copied = 'true';
     setTimeout(() => {
       wrapper.dataset.copied = undefined;
