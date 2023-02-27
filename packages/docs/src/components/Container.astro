@@ -2,21 +2,26 @@
 export interface Props {
   class?: string;
   as?: string;
+  isNarrow?: boolean;
 }
 
-const { class: className, as = 'div' } = Astro.props;
+const { isNarrow, class: className, as = 'div' } = Astro.props;
 const Tag = as;
 ---
 
-<Tag class:list={['container', className]}>
+<Tag class:list={['container', className, isNarrow && 'container--narrow']}>
   <slot />
 </Tag>
 
 <style>
   .container {
-    max-width: var(--size-lg);
+    max-width: var(--size-xl);
     width: 100%;
     margin-inline: auto;
     padding-inline: var(--size-3);
+  }
+
+  .container--narrow {
+    max-width: var(--size-lg);
   }
 </style>

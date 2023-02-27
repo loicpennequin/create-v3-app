@@ -1,5 +1,7 @@
 ---
 import '../styles/theme.css';
+import '../styles/global.css';
+import type { MarkdownHeading } from 'astro';
 import Container from '../components/Container.astro';
 import Header from '../components/Header.astro';
 import SkipToContent from '../components/SkipToContent.astro';
@@ -7,9 +9,11 @@ import { Sprite } from 'astro-icon';
 
 export interface Props {
   title: string;
+  headings: MarkdownHeading[];
 }
 
-const { title } = Astro.props;
+const { title, headings } = Astro.props;
+console.log(headings);
 ---
 
 <!DOCTYPE html>
@@ -24,78 +28,87 @@ const { title } = Astro.props;
   <body>
     <Sprite.Provider>
       <SkipToContent />
-      <Header />
+      <Container class="layout">
+        <Header />
 
-      <main id="content">
-        <slot />
-      </main>
+        <aside>Navigation</aside>
 
-      <footer>
-        Made with 💀 by
-        <a
-          href="https://github.com/loicpennequin"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Daria aka "CEO of Based"
-        </a>
-      </footer>
+        <main id="content">
+          <slot />
+        </main>
+        <aside class="toc">
+          <h2>Table of Contents</h2>
+          <ul>
+            {
+              headings.map(heading => (
+                <li>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </aside>
+
+        <footer>
+          Made with 💀 by
+          <a
+            href="https://github.com/loicpennequin"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Daria aka "CEO of Based"
+          </a>
+        </footer>
+      </Container>
     </Sprite.Provider>
   </body>
 </html>
 <style is:global>
   @import 'open-props/postcss/normalize';
-  body {
+  .layout {
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    grid-template-columns: 25ch 1fr 25ch;
   }
 
-  body > header {
-    padding-block: var(--size-5);
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: inherit;
+  .layout > header,
+  .layout > footer {
+    grid-column: 1 / -1;
   }
-
-  body > header > h1 {
-    font-size: var(--font-size-3);
-    font-weight: var(--font-weight-5);
-  }
-
-  body > header a,
-  body > header a:visited {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-  }
-  body > header *:not(h1) a:hover {
-    color: var(--text-2);
-  }
-
-  body > header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: var(--size-4);
-  }
-
-  body > header nav button {
-    background: transparent;
-  }
-
-  body > header nav svg {
-    aspect-ratio: 1;
-    width: 1.5em;
-  }
-
-  body > footer {
+  .layout > footer {
     padding: var(--size-4);
     text-align: center;
+  }
+
+  .toc {
+    align-self: start;
+    position: sticky;
+    top: 4.5%;
+    z-index: 2;
+
+    & > h2 {
+      font-size: var(--font-size-3);
+      font-weight: var(--font-weight-5);
+      margin-block-end: var(--size-2);
+    }
+
+    & ul,
+    a {
+      padding: 0;
+    }
+
+    & a,
+    a:visited {
+      color: inherit;
+    }
+
+    & a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+    & ul {
+      list-style: none;
+    }
   }
 </style>
