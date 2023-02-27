@@ -27,13 +27,19 @@ import homeMeme from '../assets/img/home-meme.jpg';
       </a>
     </footer>
   </header>
-  <div class="image-wrapper">
-    <img
-      src={homeMeme}
-      alt="spitting facts about the state of web development"
-      aria-hidden="true"
-    />
-  </div>
+  <figure>
+    <div class="image-wrapper">
+      <img
+        src={homeMeme}
+        alt="spitting facts about the state of web development"
+        aria-hidden="true"
+      />
+    </div>
+
+    <figcaption>
+      Actual footage of CVA's author delusional brain (colorized)
+    </figcaption>
+  </figure>
 </Container>
 
 <style>
@@ -86,7 +92,7 @@ import homeMeme from '../assets/img/home-meme.jpg';
   }
   .image-wrapper {
     filter: saturate(150%) contrast(200%);
-    box-shadow: var(--shadow-6);
+    box-shadow: var(--shadow-5);
 
     @media (--md-n-above) {
       animation: hero-image alternate infinite;
@@ -99,6 +105,11 @@ import homeMeme from '../assets/img/home-meme.jpg';
     }
   }
 
+  figcaption {
+    margin-block-start: var(--size-4);
+    text-align: center;
+    font-size: var(--font-size-0);
+  }
   footer {
     display: flex;
     justify-content: center;
