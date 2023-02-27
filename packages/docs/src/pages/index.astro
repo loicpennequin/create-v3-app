@@ -2,19 +2,8 @@
 import Layout from '../layouts/default.astro';
 import Sprite from 'astro-icon';
 import Hero from '../components/Hero.astro';
+import TechGrid from '../components/TechGrid.astro';
 ---
-
-<Layout title="Create V3 App.">
-  <Hero />
-
-  <div id="install-command">
-    <code>npm create-v3-app@latest</code>
-
-    <button aria-label="Copy to clipboard" title="Copy to clipboard">
-      <Sprite name="mdi:content-copy" aria-hidden="true" />
-    </button>
-  </div>
-</Layout>
 
 <script>
   const copyToClipboard = async () => {
@@ -34,7 +23,23 @@ import Hero from '../components/Hero.astro';
     ?.addEventListener('click', copyToClipboard);
 </script>
 
+<Layout title="Create V3 App.">
+  <Hero />
+
+  <div id="install-command">
+    <code>npm create-v3-app@latest</code>
+
+    <button aria-label="Copy to clipboard" title="Copy to clipboard">
+      <Sprite name="mdi:content-copy" aria-hidden="true" />
+    </button>
+  </div>
+
+  <TechGrid />
+</Layout>
+
 <style>
+  @import 'open-props/media';
+
   #install-command {
     padding: var(--size-3);
     display: flex;
@@ -42,7 +47,7 @@ import Hero from '../components/Hero.astro';
     gap: var(--size-2);
     width: fit-content;
     margin-inline: auto;
-    margin-block-start: var(--size-8);
+    margin-block: var(--size-10);
     border-radius: var(--radius-3);
     border: solid 3px var(--surface-4);
     background-color: var(--surface-2);

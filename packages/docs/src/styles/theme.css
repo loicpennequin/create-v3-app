@@ -4,4 +4,47 @@
   --font-size-10: 5rem;
   --font-size-11: 6rem;
   --font-size-12: 7.5rem;
+
+  --border: var(--surface-4);
+}
+
+html:not(.dark) {
+	--link: var(--indigo-7);
+  --link-visited: var(--link);
+
+  --text-1: var(--gray-10);
+  --text-2: var(--gray-7);
+
+  --surface-1: var(--gray-0);
+  --surface-2: var(--gray-2);
+  --surface-3: var(--gray-3);
+  --surface-4: var(--gray-4);
+
+	@media (prefers-color-scheme: dark) {
+		--link: var(--indigo-3);
+		--link-visited: var(--link);
+		
+		--text-1: var(--gray-1);
+		--text-2: var(--gray-4);
+		
+		--surface-1: var(--gray-9);
+		--surface-2: var(--gray-8);
+		--surface-3: var(--gray-7);
+		--surface-4: var(--gray-6);
+	}
+}
+
+
+
+html.dark {
+	--link: var(--indigo-3);
+	--link-visited: var(--link);
+	
+	--text-1: var(--gray-1);
+	--text-2: var(--gray-4);
+	
+	--surface-1: var(--gray-9);
+	--surface-2: var(--gray-8);
+	--surface-3: var(--gray-7);
+	--surface-4: var(--gray-6);
 }

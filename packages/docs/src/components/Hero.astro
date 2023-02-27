@@ -86,10 +86,12 @@ import homeMeme from '../assets/img/home-meme.jpg';
   }
   .image-wrapper {
     filter: saturate(150%) contrast(200%);
-    transform: rotateY(-5deg);
     box-shadow: var(--shadow-6);
-    animation: hero-image alternate infinite;
-    animation-duration: 3s;
+
+    @media (--md-n-above) {
+      animation: hero-image alternate infinite;
+      animation-duration: 3s;
+    }
 
     & > img {
       animation: var(--animation-fade-in-bloom) forwards;

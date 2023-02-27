@@ -11,35 +11,40 @@ const { class: className, as = 'div' } = Astro.props;
 const Tag = as;
 ---
 
-<Container as="header">
-  <h1><a href="/">Create V3 app</a></h1>
+<header>
+  <Container class="inner">
+    <h1><a href="/">Create V3 app</a></h1>
 
-  <nav>
-    <ul>
-      <li><a href="/docs">Docs</a></li>
-      <li>
-        <a
-          href="https://github.com/loicpennequin/create-v3-app"
-          rel="noopener noreferrer"
-          target="_blank"
-          aria-label="See the github repository"
-        >
-          <Sprite name="mdi:github" aria-hidden="true" />
-        </a>
-      </li>
-    </ul>
-  </nav>
-</Container>
+    <nav>
+      <ul>
+        <li><a href="/docs">Docs</a></li>
+        <li>
+          <a
+            href="https://github.com/loicpennequin/create-v3-app"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="See the github repository"
+          >
+            <Sprite name="mdi:github" aria-hidden="true" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </Container>
+</header>
 
 <style>
   header {
-    padding-block: var(--size-5);
-    display: flex;
-    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 1;
     background-color: inherit;
+  }
+
+  .inner {
+    padding-block: var(--size-5);
+    display: flex;
+    justify-content: space-between;
 
     & h1 {
       font-size: var(--font-size-3);
