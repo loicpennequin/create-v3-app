@@ -1,5 +1,12 @@
 # create-v3-app
 
+## 0.1.5
+
+### Patch Changes
+
+- [`98a1a77`](https://github.com/loicpennequin/create-v3-app/commit/98a1a77d6439761a7d800b79fa8f71cb5c34f44e) Thanks [@loicpennequin](https://github.com/loicpennequin)! - - added CSS Variables autocomplete VS Code extension suggestion
+  - added prisma/data/ folder to gitignore
+
 ## 0.1.4
 
 ### Patch Changes
