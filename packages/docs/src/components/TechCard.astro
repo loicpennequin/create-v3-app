@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title: string;
+  as?: string;
+}
+---
+
+<article>
+  <slot />
+</article>
+
+<style>
+  .container {
+    max-width: var(--size-lg);
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--size-3);
+  }
+</style>

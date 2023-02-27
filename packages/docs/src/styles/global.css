@@ -1,3 +1,5 @@
+@import 'open-props/postcss/normalize';
+
 .sr-only {
 	position: absolute !important;
 	width: 1px !important;
@@ -8,4 +10,50 @@
 	clip: rect(0,0,0,0) !important;
 	white-space: nowrap !important;
 	border: 0 !important;
+}
+
+html:not(.dark) {
+	--link: var(--indigo-7);
+  --link-visited: var(--link);
+
+  --text-1: var(--gray-10);
+  --text-2: var(--gray-7);
+
+  --surface-1: var(--gray-0);
+  --surface-2: var(--gray-2);
+  --surface-3: var(--gray-3);
+  --surface-4: var(--gray-4);
+
+	@media (prefers-color-scheme: dark) {
+		--link: var(--indigo-3);
+		--link-visited: var(--link);
+		
+		--text-1: var(--gray-1);
+		--text-2: var(--gray-4);
+		
+		--surface-1: var(--gray-9);
+		--surface-2: var(--gray-8);
+		--surface-3: var(--gray-7);
+		--surface-4: var(--gray-6);
+	}
+}
+
+
+
+html.dark {
+	--link: var(--indigo-3);
+	--link-visited: var(--link);
+	
+	--text-1: var(--gray-1);
+	--text-2: var(--gray-4);
+	
+	--surface-1: var(--gray-9);
+	--surface-2: var(--gray-8);
+	--surface-3: var(--gray-7);
+	--surface-4: var(--gray-6);
+}
+
+body {
+	background: var(--surface-1);
+  color: var(--text-1);
 }

@@ -1,0 +1,58 @@
+---
+import '../styles/theme.css';
+import '../styles/global.css';
+import Container from '../components/Container.astro';
+import Header from '../components/Header.astro';
+import SkipToContent from '../components/SkipToContent.astro';
+import { Sprite } from 'astro-icon';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Sprite.Provider>
+      <SkipToContent />
+      <Header />
+
+      <main id="content">
+        <slot />
+      </main>
+
+      <footer>
+        Made with 💀 by
+        <a
+          href="https://github.com/loicpennequin"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Daria aka "CEO of Based"
+        </a>
+      </footer>
+    </Sprite.Provider>
+  </body>
+</html>
+<style is:global>
+  body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  body > footer {
+    padding: var(--size-4);
+    text-align: center;
+  }
+</style>
