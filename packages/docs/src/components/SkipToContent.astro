@@ -1,0 +1,27 @@
+---
+---
+
+<a href="#content">Jump to content</a>
+
+<style>
+  a {
+    left: 50%;
+    position: fixed;
+    top: 0;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    padding: --size-2;
+    background: var(--gradient-24);
+    z-index: 2;
+    color: white;
+    text-decoration: underline;
+
+    &,
+    &:visited {
+      color: white;
+    }
+    &:focus {
+      transform: translateY(calc(0% + var(--size-2)));
+    }
+  }
+</style>

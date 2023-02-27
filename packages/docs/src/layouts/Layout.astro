@@ -1,6 +1,7 @@
 ---
 import '../styles/theme.css';
 import Container from '../components/Container.astro';
+import SkipToContent from '../components/SkipToContent.astro';
 import { Sprite } from 'astro-icon';
 
 export interface Props {
@@ -21,6 +22,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <Sprite.Provider>
+      <SkipToContent />
       <Container as="header">
         <h1><a href="/">Create v3 app</a></h1>
 
@@ -41,7 +43,7 @@ const { title } = Astro.props;
         </nav>
       </Container>
 
-      <main>
+      <main id="content">
         <slot />
       </main>
 
@@ -74,6 +76,7 @@ const { title } = Astro.props;
     justify-content: space-between;
     position: sticky;
     top: 0;
+    z-index: 1;
     background-color: inherit;
   }
 

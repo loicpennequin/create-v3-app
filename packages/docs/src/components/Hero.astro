@@ -27,11 +27,13 @@ import homeMeme from '../assets/img/home-meme.jpg';
       </a>
     </footer>
   </header>
-  <img
-    src={homeMeme}
-    alt="spitting facts about the state of web development"
-    aria-hidden="true"
-  />
+  <div class="image-wrapper">
+    <img
+      src={homeMeme}
+      alt="spitting facts about the state of web development"
+      aria-hidden="true"
+    />
+  </div>
 </Container>
 
 <style>
@@ -74,10 +76,25 @@ import homeMeme from '../assets/img/home-meme.jpg';
     }
   }
 
-  img {
+  @keyframes hero-image {
+    from {
+      transform: rotateY(-5deg);
+    }
+    to {
+      transform: rotateY(2deg);
+    }
+  }
+  .image-wrapper {
     filter: saturate(150%) contrast(200%);
-    box-shadow: var(--shadow-5);
     transform: rotateY(-5deg);
+    box-shadow: var(--shadow-6);
+    animation: hero-image alternate infinite;
+    animation-duration: 3s;
+
+    & > img {
+      animation: var(--animation-fade-in-bloom) forwards;
+      animation-duration: 3s;
+    }
   }
 
   footer {
