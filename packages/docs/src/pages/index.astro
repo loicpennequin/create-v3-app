@@ -8,7 +8,7 @@ import Hero from '../components/Hero.astro';
   <Hero />
 
   <div id="install-command">
-    <code>npx create-v3-app@latest</code>
+    <code>npm create-v3-app@latest</code>
 
     <button aria-label="Copy to clipboard" title="Copy to clipboard">
       <Sprite name="mdi:content-copy" aria-hidden="true" />
@@ -18,7 +18,6 @@ import Hero from '../components/Hero.astro';
 
 <script>
   const copyToClipboard = async () => {
-    console.log('?');
     await navigator.clipboard.writeText(
       document.querySelector<HTMLElement>('#install-command > code')!.innerText
     );

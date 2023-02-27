@@ -5,6 +5,7 @@
     "Vue.volar",
     "Vue.vscode-typescript-vue-plugin",
     "cpylua.language-postcss",
-    "csstools.postcss"
+    "csstools.postcss",
+    "phoenisx.cssvar"
   ]
 }

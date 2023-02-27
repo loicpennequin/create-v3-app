@@ -5,16 +5,19 @@ import homeMeme from '../assets/img/home-meme.jpg';
 ---
 
 <Container class="hero" as="section">
-  <div>
-    <p>We fixed full stack <span aria-hidden="true">😱</span></p>
+  <header>
+    <p class="headline">
+      We fixed full stack <span aria-hidden="true">😱</span>
+    </p>
     <p>
       The best way to start a blazingly fast, fullstack Nuxt app as a software
       engineer in 2023 (NOT CLICKBAIT)
     </p>
 
     <footer>
-      <a href="/docs">Getting Started</a>
+      <a class="footer-link" href="/docs">Getting Started</a>
       <a
+        class="footer-link"
         href="https://github.com/loicpennequin/create-v3-app"
         rel="noopener noreferrer"
         target="_blank"
@@ -23,8 +26,12 @@ import homeMeme from '../assets/img/home-meme.jpg';
         <Sprite name="octicon:link-external-16" aria-hidden="true" />
       </a>
     </footer>
-  </div>
-  <img src={homeMeme} alt="spitting facts about the state of web development" />
+  </header>
+  <img
+    src={homeMeme}
+    alt="spitting facts about the state of web development"
+    aria-hidden="true"
+  />
 </Container>
 
 <style>
@@ -37,6 +44,8 @@ import homeMeme from '../assets/img/home-meme.jpg';
     grid-template-columns: repeat(2, minmax(auto, 1fr));
     place-content: center;
     gap: var(--size-3);
+    perspective: 600px;
+    transform-style: preserve-3d;
 
     @media (--md-n-below) {
       display: flex;
@@ -44,13 +53,14 @@ import homeMeme from '../assets/img/home-meme.jpg';
     }
   }
 
-  .hero > div:nth-of-type(1) {
+  header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: var(--size-3);
+    font-size: var(--font-size-4);
   }
-  .hero p:nth-of-type(1) {
+  .headline {
     color: transparent;
     background: var(--gradient-24);
     background-clip: text;
@@ -63,24 +73,30 @@ import homeMeme from '../assets/img/home-meme.jpg';
       color: var(--text-1);
     }
   }
-  .hero p:nth-of-type(2) {
-    font-size: var(--font-size-4);
+
+  img {
+    filter: saturate(150%) contrast(200%);
+    box-shadow: var(--shadow-5);
+    transform: rotateY(-5deg);
   }
 
-  .hero {
-    & img {
-      filter: saturate(150%) contrast(200%);
+  footer {
+    display: flex;
+    justify-content: center;
+    gap: var(--size-6);
+    margin-block-start: var(--size-6);
+
+    & svg {
+      width: 1.2rem;
+      aspect-ratio: 1;
     }
 
-    & footer {
-      display: flex;
-      justify-content: center;
-      gap: var(--size-6);
-      margin-block-start: var(--size-6);
+    &:hover {
+      background: var(--surface-2);
     }
   }
 
-  .hero footer a {
+  .footer-link {
     color: inherit;
     display: flex;
     gap: var(--size-1);
@@ -89,22 +105,17 @@ import homeMeme from '../assets/img/home-meme.jpg';
     text-decoration: none;
     font-size: var(--font-size-3);
     font-weight: var(--font-weight-6);
-  }
-  .hero footer svg {
-    width: 1.2rem;
-    aspect-ratio: 1;
-  }
-  .hero footer a:nth-of-type(1) {
-    background: var(--gradient-4);
-  }
-  .hero footer a:nth-of-type(1):hover {
-    filter: brightness(1.05);
-  }
-  .hero footer a:nth-of-type(2) {
-    border: solid 1px var(--gray-5);
-    background: var(--surface-1);
-  }
-  .hero footer a:nth-of-type(2):hover {
-    background: var(--surface-2);
+
+    &:nth-of-type(1) {
+      background: var(--gradient-4);
+    }
+
+    &:nth-of-type(1):hover {
+      filter: brightness(1.05);
+    }
+    &:nth-of-type(2) {
+      border: solid 1px var(--gray-5);
+      background: var(--surface-1);
+    }
   }
 </style>

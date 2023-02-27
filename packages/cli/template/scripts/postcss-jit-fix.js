@@ -11,6 +11,13 @@
  * limitations under the License.
  */
 
+/*
+  This is a fix of postcss-jit-props which allows to only ship the css variables you're using
+  This fix is needed to support vue's <style scoped>
+  As it will append the componet hash as a data attribute to all selectors, 
+  it will append it to the rules generated bu this plugin, resulting in [data-v-xyz]:root {} , which is a miss
+*/
+
 const fs = require('fs');
 const crypto = require('crypto');
 
@@ -52,9 +59,11 @@ module.exports = UserProps => {
 
       return {
         Once(node, { parse, result, Rule, AtRule }) {
+          // HERE IS THE FIX
           let target_selector = node.source.input.file.includes('&scoped')
             ? ':global(:root)'
             : ':root';
+          // END OF THE FIX
 
           if (!Object.keys(UserPropsCopy).length) {
             return console.warn(
