@@ -20,6 +20,10 @@ const menu: MenuItem[] = [
   {
     href: '/docs/getting-started',
     label: 'Getting Started'
+  },
+  {
+    href: '/docs/folder-structure',
+    label: 'Folder Structure'
   }
 ];
 
@@ -51,7 +55,7 @@ const isActive = (item: MenuItem) => currentPageMatch === item.href.slice(1);
   }
 
   li + li {
-    margin-block-start: var(--size-2);
+    margin-block-start: var(--size-4);
   }
 
   a,

@@ -31,42 +31,57 @@ const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
 ---
 
 <script>
-  const toc = document.getElementById('toc')!;
+  class TableOfContent extends HTMLElement {
+    constructor() {
+      super();
+      this.bindLinks();
+    }
 
-  toc.querySelectorAll<HTMLAnchorElement>('ul a').forEach(link => {
-    const targetEl = document.getElementById(new URL(link.href).hash.slice(1));
-    if (!targetEl) return;
+    bindLinks() {
+      const links = this.querySelectorAll<HTMLAnchorElement>('a').forEach(
+        link => {
+          const targetEl = document.getElementById(
+            new URL(link.href).hash.slice(1)
+          );
+          if (!targetEl) return;
 
-    new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        link.dataset.inViewport = String(entry.isIntersecting);
+          new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              link.dataset.inViewport = String(entry.isIntersecting);
 
-        if (!entry.isIntersecting) {
-          link.dataset.active = 'false';
+              if (!entry.isIntersecting) {
+                link.dataset.active = 'false';
+              }
+              const visibleElements = [
+                ...this.querySelectorAll<HTMLAnchorElement>(
+                  '[data-in-viewport="true"]'
+                )
+              ];
+
+              visibleElements.forEach((el, index) => {
+                el.dataset.active = String(index === 0);
+              });
+            });
+          }).observe(targetEl!);
         }
-        const visibleElements = [
-          ...toc.querySelectorAll<HTMLAnchorElement>(
-            '[data-in-viewport="true"]'
-          )
-        ];
+      );
+    }
+  }
 
-        visibleElements.forEach((el, index) => {
-          el.dataset.active = String(index === 0);
-        });
-      });
-    }).observe(targetEl!);
-  });
+  customElements.define('table-of-content', TableOfContent);
 </script>
 
 <Fragment>
   <h2>On this page</h2>
-  <ul id="toc" class={className}>
-    {
-      rootHeadings.map(heading => (
-        <TableOfContentEntry entry={heading} depth={0} />
-      ))
-    }
-  </ul>
+  <table-of-content>
+    <ul class={className}>
+      {
+        rootHeadings.map(heading => (
+          <TableOfContentEntry entry={heading} depth={0} />
+        ))
+      }
+    </ul>
+  </table-of-content>
 </Fragment>
 
 <style>
@@ -82,11 +97,8 @@ const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
   }
 
   ul {
-    padding-left: 0;
-  }
-
-  #toc,
-  #toc :global(ul) {
+    padding-left: var(--size-2);
+    border-left: solid 1px var(--surface-4);
     list-style: none;
   }
 

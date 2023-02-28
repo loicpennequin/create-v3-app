@@ -8,11 +8,6 @@ import MainNavigation from './MainNavigation.astro';
   const LOCAL_STORAGE_KEY = 'dark-mode';
   const html = document.documentElement;
 
-  const isDarkMode = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) as any);
-  if (isDarkMode) {
-    html.classList.add('dark');
-  }
-
   document.getElementById('dark-mode-toggle')!.addEventListener('click', () => {
     html.classList.toggle('dark');
 
