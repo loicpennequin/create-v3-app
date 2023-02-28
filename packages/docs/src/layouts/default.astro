@@ -13,8 +13,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="preload">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -42,6 +41,13 @@ const { title } = Astro.props;
         </a>
       </footer>
     </Sprite.Provider>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          document.documentElement.classList.remove('preload');
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
 <style is:global>
@@ -49,6 +55,10 @@ const { title } = Astro.props;
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
+  }
+
+  body > header {
+    padding-inline: var(--size-3);
   }
 
   body > footer {

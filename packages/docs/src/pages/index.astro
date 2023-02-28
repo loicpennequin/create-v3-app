@@ -5,24 +5,6 @@ import Hero from '../components/Hero.astro';
 import TechGrid from '../components/TechGrid.astro';
 ---
 
-<script>
-  const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(
-      document.querySelector<HTMLElement>('#install-command > code')!.innerText
-    );
-
-    const wrapper = document.getElementById('install-command')!;
-    wrapper.dataset.copied = 'true';
-    setTimeout(() => {
-      wrapper.dataset.copied = undefined;
-    }, 2000);
-  };
-
-  document
-    .querySelector('#install-command button')
-    ?.addEventListener('click', copyToClipboard);
-</script>
-
 <Layout title="Create V3 App.">
   <Hero />
 
@@ -35,6 +17,24 @@ import TechGrid from '../components/TechGrid.astro';
   </div>
 
   <TechGrid />
+
+  <script defer>
+    const copyToClipboard = async () => {
+      await navigator.clipboard.writeText(
+        document.querySelector<HTMLElement>('#install-command > code').innerText
+      );
+
+      const wrapper = document.getElementById('install-command');
+      wrapper.dataset.copied = 'true';
+      setTimeout(() => {
+        wrapper.dataset.copied = undefined;
+      }, 2000);
+    };
+
+    document
+      .querySelector('#install-command button')
+      ?.addEventListener('click', copyToClipboard);
+  </script>
 </Layout>
 
 <style>

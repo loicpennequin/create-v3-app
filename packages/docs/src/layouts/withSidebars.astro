@@ -7,7 +7,7 @@ import Header from '../components/Header.astro';
 import SkipToContent from '../components/SkipToContent.astro';
 import { Sprite } from 'astro-icon';
 import TableOfContents from '../components/TableOfContents.astro';
-import LeftNavigation from '../components/LeftNavigation.astro';
+import MainNavigation from '../components/MainNavigation.astro';
 
 export interface Props {
   title: string;
@@ -15,11 +15,19 @@ export interface Props {
 }
 
 const { title, headings } = Astro.props;
-const currentPage = Astro.url.pathname;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<script>
+  const tocMobile = document.getElementById('toc-mobile')!;
+
+  tocMobile.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(el => {
+    el.addEventListener('click', () => {
+      tocMobile.removeAttribute('open');
+    });
+  });
+</script>
+
+<html lang="en" class="preload">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -30,41 +38,77 @@ const currentPage = Astro.url.pathname;
   <body>
     <Sprite.Provider>
       <SkipToContent />
-      <Container class="layout">
-        <Header />
+      <Container>
+        <div class="layout">
+          <Header>
+            <details id="toc-mobile">
+              <summary>On this page</summary>
+              <TableOfContents headings={headings} class="toc-mobile-content" />
+            </details>
+          </Header>
 
-        <aside>
-          <LeftNavigation />
-        </aside>
+          <aside>
+            <MainNavigation />
+          </aside>
 
-        <main id="content">
-          <slot />
-        </main>
-        <aside>
-          <TableOfContents headings={headings} />
-        </aside>
+          <main id="content">
+            <slot />
+          </main>
 
-        <footer>
-          Made with 💀 by
-          <a
-            href="https://github.com/loicpennequin"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Daria aka "CEO of Based"
-          </a>
-        </footer>
+          <aside>
+            <TableOfContents headings={headings} />
+          </aside>
+
+          <footer>
+            Made with 💀 by
+            <a
+              href="https://github.com/loicpennequin"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Daria aka "CEO of Based"
+            </a>
+          </footer>
+        </div>
       </Container>
     </Sprite.Provider>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          document.documentElement.classList.remove('preload');
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
 <style is:global>
+  @import 'open-props/media';
   @import 'open-props/postcss/normalize';
   .layout {
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: 25ch 1fr 25ch;
+    grid-template-columns: 30ch 1fr 30ch;
+
+    @media (--lg-n-below) {
+      display: block;
+    }
+  }
+
+  #toc-mobile {
+    background: transparent;
+
+    & > summary {
+      width: fit-content;
+    }
+    @media (--lg-n-above) {
+      display: none;
+    }
+  }
+
+  .toc-mobile-content {
+    box-shadow: var(--shadow-2);
+    width: fit-content;
   }
 
   .layout > header,
@@ -81,5 +125,29 @@ const currentPage = Astro.url.pathname;
     position: sticky;
     top: 5rem;
     z-index: 2;
+  }
+
+  @media (--lg-n-below) {
+    aside {
+      display: none;
+    }
+  }
+
+  main {
+    justify-self: center;
+    with: 100%;
+    max-width: 60ch;
+
+    & h2 {
+      margin-block-end: var(--size-4);
+    }
+
+    & :is(h2, h3, h4) {
+      scroll-margin-block-start: 6.5rem;
+
+      @media (--md-n-above) {
+        scroll-margin-block-start: 5rem;
+      }
+    }
   }
 </style>

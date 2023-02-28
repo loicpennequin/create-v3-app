@@ -5,9 +5,10 @@ import TableOfContentEntry from './TableOfContentEntry.astro';
 
 export interface Props {
   headings: MarkdownHeading[];
+  class?: string;
 }
 
-const { headings } = Astro.props;
+const { class: className, headings } = Astro.props;
 
 const headingsWithChildren: ToCEntry[] = [];
 
@@ -58,8 +59,8 @@ const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
 </script>
 
 <Fragment>
-  <h2>Table of Contents</h2>
-  <ul id="toc">
+  <h2>On this page</h2>
+  <ul id="toc" class={className}>
     {
       rootHeadings.map(heading => (
         <TableOfContentEntry entry={heading} depth={0} />
@@ -69,10 +70,15 @@ const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
 </Fragment>
 
 <style>
+  @import 'open-props/media';
+
   h2 {
     font-size: var(--font-size-3);
     font-weight: var(--font-weight-5);
-    margin-block-end: var(--size-2);
+    margin-block-end: var(--size-4);
+    @media (--md-n-below) {
+      display: none;
+    }
   }
 
   ul {

@@ -16,3 +16,12 @@ body {
 	background: var(--surface-1);
   color: var(--text-1);
 }
+
+ul {
+	font-size: var(--font-size-1);
+}
+
+.preload * {
+  transition: none !important;
+  animation-duration: 0s !important;
+}

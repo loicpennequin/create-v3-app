@@ -43,7 +43,11 @@ const isActive = (item: MenuItem) => currentPageMatch === item.href.slice(1);
 <style>
   ul {
     list-style: none;
-    padding-inline: var(--size-3);
+    padding-inline: 0;
+  }
+
+  li {
+    padding: 0;
   }
 
   li + li {
