@@ -21,7 +21,7 @@ html:not(.dark) {
   --surface-3: var(--gray-3);
   --surface-4: var(--gray-4);
 
-	@media (prefers-color-scheme: dark) {
+	/* @media (prefers-color-scheme: dark) {
 		--link: var(--indigo-3);
 		--link-visited: var(--link);
 		
@@ -32,7 +32,7 @@ html:not(.dark) {
 		--surface-2: var(--gray-8);
 		--surface-3: var(--gray-7);
 		--surface-4: var(--gray-6);
-	}
+	} */
 }
 
 

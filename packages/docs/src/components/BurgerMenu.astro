@@ -184,6 +184,11 @@ import MainNavigation from './MainNavigation.astro';
     & h2 {
       font-size: var(--font-size-4);
     }
+
+    & button svg {
+      width: var(--size-7);
+      aspect-ratio: 1;
+    }
   }
 
   .burger-menu-overlay.inactive {
@@ -191,10 +196,5 @@ import MainNavigation from './MainNavigation.astro';
     & .burger-menu {
       animation-duration: 0s !important;
     }
-  }
-
-  .close {
-    width: var(--size-7);
-    aspect-ratio: 1;
   }
 </style>
