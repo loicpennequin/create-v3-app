@@ -1,0 +1,55 @@
+@custom-media --motionOK      (prefers-reduced-motion: no-preference);
+@custom-media --motionNotOK   (prefers-reduced-motion: reduce);
+@custom-media --opacityOK     (prefers-reduced-transparency: no-preference);
+@custom-media --opacityNotOK  (prefers-reduced-transparency: reduce);
+@custom-media --useDataOK     (prefers-reduced-data: no-preference);
+@custom-media --useDataNotOK  (prefers-reduced-data: reduce);
+
+@custom-media --OSdark        (prefers-color-scheme: dark);
+@custom-media --OSlight       (prefers-color-scheme: light);
+
+@custom-media --highContrast  (prefers-contrast: more);
+@custom-media --lowContrast   (prefers-contrast: less);
+
+@custom-media --portrait      (orientation: portrait);
+@custom-media --landscape     (orientation: landscape);
+
+@custom-media --HDcolor       (dynamic-range: high);
+
+@custom-media --touch         (hover: none) and (pointer: coarse);
+@custom-media --stylus        (hover: none) and (pointer: fine);
+@custom-media --pointer       (hover) and (pointer: coarse);
+@custom-media --mouse         (hover) and (pointer: fine);
+
+@custom-media --xxs-only      (min-width: 0px) and (max-width: 15em);
+@custom-media --xxs-n-above   (min-width: 15em);
+@custom-media --xxs-n-below   (max-width: 15em);
+@custom-media --xxs-phone     (--xxs-only) and (--portrait);
+
+@custom-media --xs-only       (min-width: 15em) and (max-width: 23em);
+@custom-media --xs-n-above    (min-width: 23em);
+@custom-media --xs-n-below    (max-width: 23em);
+@custom-media --xs-phone      (--xs-only) and (--portrait);
+
+@custom-media --sm-only       (min-width: 23em) and (max-width: 30em);
+@custom-media --sm-n-above    (min-width: 30em);
+@custom-media --sm-n-below    (max-width: 30em);
+@custom-media --sm-phone      (--sm-only) and (--portrait);
+
+@custom-media --md-only       (min-width: 30em) and (max-width: 48em);
+@custom-media --md-n-above    (min-width: 48em);
+@custom-media --md-n-below    (max-width: 48em);
+@custom-media --md-phone      (--md-only) and (--portrait);
+
+@custom-media --lg-only       (min-width: 48em) and (max-width: 64em);
+@custom-media --lg-n-above    (min-width: 64em);
+@custom-media --lg-n-below    (max-width: 64em);
+@custom-media --lg-phone      (--lg-only) and (--portrait);
+
+@custom-media --xl-only       (min-width: 64em) and (max-width: 90em);
+@custom-media --xl-n-above    (min-width: 90em);
+@custom-media --xl-n-below    (max-width: 90em);
+
+@custom-media --xxl-only      (min-width: 90em) and (max-width: 120em);
+@custom-media --xxl-n-above   (min-width: 120em);
+@custom-media --xxl-n-below   (max-width: 120em);
