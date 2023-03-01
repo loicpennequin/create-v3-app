@@ -148,8 +148,8 @@ const { frontmatter, headings } = Astro.props;
 
   main {
     justify-self: center;
-    with: 100%;
-    width: 60ch;
+    width: 100%;
+    max-width: 80ch;
 
     @media (--md-n-below) {
       padding-top: var(--size-5);
@@ -159,6 +159,9 @@ const { frontmatter, headings } = Astro.props;
       margin-block-end: var(--size-4);
     }
 
+    & :is(p, h2, h3, h4) {
+      max-inline-size: var(--size-content-4);
+    }
     & :is(h2, h3, h4) {
       scroll-margin-block-start: 6.5rem;
 
@@ -168,16 +171,17 @@ const { frontmatter, headings } = Astro.props;
     }
 
     & .astro-code {
-      padding: var(--size-2) var(--size-6);
-      border-radius: var(--radius-3);
+      padding: var(--size-2) var(--size-5);
+      border-radius: var(--radius-2);
     }
 
     & .remark-code-title {
       background-color: #191724;
-      padding: var(--size-2) var(--size-5) 0;
+      padding: var(--size-2) var(--size-5);
       color: #e0def4;
-      border-top-left-radius: var(--radius-3);
-      border-top-right-radius: var(--radius-3);
+      border-top-left-radius: var(--radius-2);
+      border-top-right-radius: var(--radius-2);
+      border-bottom: solid 1px #c4a7e7;
 
       & + .astro-code {
         border-top-left-radius: 0;
