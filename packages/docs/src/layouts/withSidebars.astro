@@ -35,12 +35,12 @@ const { frontmatter, headings } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title} | Create V3 App</title>
     <script is:inline>
-      const LOCAL_STORAGE_KEY = 'dark-mode';
+      const LOCAL_STORAGE_KEY = 'color-mode';
       const html = document.documentElement;
 
-      const isDarkMode = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-      if (isDarkMode) {
-        html.classList.add('dark');
+      const colorMode = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (colorMode) {
+        html.classList.add(colorMode);
       }
     </script>
   </head>

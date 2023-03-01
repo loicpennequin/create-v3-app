@@ -6,19 +6,17 @@ import BurgerMenu from './BurgerMenu.astro';
 ---
 
 <script>
-  const LOCAL_STORAGE_KEY = 'dark-mode';
+  const LOCAL_STORAGE_KEY = 'color-mode';
   const html = document.documentElement;
 
-  document.getElementById('dark-mode-toggle')!.addEventListener('click', () => {
-    console.log('dark mode toggle clicked');
-    html.classList.toggle('dark');
+  document
+    .getElementById('color-mode-toggle')!
+    .addEventListener('click', () => {
+      const newMode = html.classList.contains('dark') ? 'light' : 'dark';
+      html.className = newMode;
 
-    localStorage.setItem(
-      LOCAL_STORAGE_KEY,
-      html.classList.contains('dark') as any
-    );
-    console.log(html.className);
-  });
+      localStorage.setItem(LOCAL_STORAGE_KEY, newMode);
+    });
 </script>
 
 <header>
@@ -40,7 +38,7 @@ import BurgerMenu from './BurgerMenu.astro';
         </li>
         <li>
           <button
-            id="dark-mode-toggle"
+            id="color-mode-toggle"
             aria-label="toggle dark mode"
             title="toggle dark mode"
           >
@@ -56,117 +54,117 @@ import BurgerMenu from './BurgerMenu.astro';
   </Container>
 
   <slot />
+</header>
 
-  <style>
-    @import 'open-props/media';
+<style>
+  @import 'open-props/media';
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      background-color: var(--surface-1);
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--surface-1);
+  }
+
+  .inner {
+    padding: var(--size-5) 0;
+    display: flex;
+    justify-content: space-between;
+    @media (--md-n-below) {
+      padding: var(--size-3) 0;
     }
+  }
 
-    .inner {
-      padding: var(--size-5) 0;
-      display: flex;
-      justify-content: space-between;
-      @media (--md-n-below) {
-        padding: var(--size-3) 0;
-      }
-    }
-
-    h1 {
-      font-size: var(--font-size-3);
-      font-weight: var(--font-weight-5);
-      align-self: center;
-
-      @media (--md-n-below) {
-        font-size: var(--font-size-4);
-      }
-    }
-
-    a,
-    a:visited {
-      color: inherit;
-      text-decoration: none;
-      display: block;
-    }
-
-    :not(h1) a:hover {
-      color: var(--text-2);
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: var(--size-4);
-    }
-
-    nav button {
-      background: transparent;
-    }
-
-    nav svg,
-    nav :global(svg) {
-      width: var(--size-6);
-      aspect-ratio: 1;
-
-      @media (--md-n-below) {
-        width: var(--size-7);
-      }
-    }
-
-    li {
-      padding: 0;
-    }
-
-    li > a,
-    li > button {
-      padding: 0;
-      margin: 0;
-      display: block;
-    }
-
-    li:last-of-type {
-      display: none;
-    }
+  h1 {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-5);
+    align-self: center;
 
     @media (--md-n-below) {
-      li:last-of-type {
+      font-size: var(--font-size-4);
+    }
+  }
+
+  a,
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+
+  :not(h1) a:hover {
+    color: var(--text-2);
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--size-4);
+  }
+
+  nav button {
+    background: transparent;
+  }
+
+  nav svg,
+  nav :global(svg) {
+    width: var(--size-6);
+    aspect-ratio: 1;
+
+    @media (--md-n-below) {
+      width: var(--size-7);
+    }
+  }
+
+  li {
+    padding: 0;
+  }
+
+  li > a,
+  li > button {
+    padding: 0;
+    margin: 0;
+    display: block;
+  }
+
+  li:last-of-type {
+    display: none;
+  }
+
+  @media (--md-n-below) {
+    li:last-of-type {
+      display: block;
+    }
+    li:first-of-type {
+      display: none;
+    }
+  }
+
+  #color-mode-toggle {
+    & > svg:nth-of-type(2) {
+      display: none;
+    }
+    @media (--OSdark) {
+      & > svg:nth-of-type(1) {
+        display: none;
+      }
+      & > svg:nth-of-type(2) {
         display: block;
       }
-      li:first-of-type {
+    }
+  }
+
+  :global(html.dark) {
+    #color-mode-toggle {
+      & > svg:nth-of-type(1) {
         display: none;
       }
-    }
-
-    #dark-mode-toggle {
       & > svg:nth-of-type(2) {
-        display: none;
-      }
-      @media (--OSdark) {
-        & > svg:nth-of-type(1) {
-          display: none;
-        }
-        & > svg:nth-of-type(2) {
-          display: block;
-        }
+        display: block;
       }
     }
-
-    :global(html.dark) {
-      #dark-mode-toggle {
-        & > svg:nth-of-type(1) {
-          display: none;
-        }
-        & > svg:nth-of-type(2) {
-          display: block;
-        }
-      }
-    }
-  </style>
-</header>
+  }
+</style>

@@ -24,9 +24,9 @@ const { title } = Astro.props;
       const LOCAL_STORAGE_KEY = 'dark-mode';
       const html = document.documentElement;
 
-      const isDarkMode = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-      if (isDarkMode) {
-        html.classList.add('dark');
+      const colorMode = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (colorMode) {
+        html.classList.add(colorMode);
       }
     </script>
   </head>
