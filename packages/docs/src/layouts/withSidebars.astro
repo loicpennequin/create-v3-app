@@ -91,10 +91,13 @@ const { frontmatter, headings } = Astro.props;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 30ch 1fr 30ch;
+    column-gap: var(--size-2);
 
     @media (--lg-n-below) {
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: 30ch 1fr;
+    }
+    @media (--md-n-below) {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -129,11 +132,17 @@ const { frontmatter, headings } = Astro.props;
     position: sticky;
     top: 5rem;
     z-index: 2;
-  }
 
-  @media (--lg-n-below) {
-    aside {
-      display: none;
+    &:nth-of-type(1) {
+      @media (--md-n-below) {
+        display: none;
+        float: left;
+      }
+    }
+    &:nth-of-type(2) {
+      @media (--md-n-below) {
+        display: none;
+      }
     }
   }
 

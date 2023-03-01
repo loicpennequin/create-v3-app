@@ -11,7 +11,7 @@ import BurgerMenu from './BurgerMenu.astro';
 
   document.getElementById('dark-mode-toggle')!.addEventListener('click', () => {
     html.classList.toggle('dark');
-    console.log(html.className);
+
     localStorage.setItem(
       LOCAL_STORAGE_KEY,
       html.classList.contains('dark') as any
