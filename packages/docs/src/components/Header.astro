@@ -10,12 +10,14 @@ import BurgerMenu from './BurgerMenu.astro';
   const html = document.documentElement;
 
   document.getElementById('dark-mode-toggle')!.addEventListener('click', () => {
+    console.log('dark mode toggle clicked');
     html.classList.toggle('dark');
 
     localStorage.setItem(
       LOCAL_STORAGE_KEY,
       html.classList.contains('dark') as any
     );
+    console.log(html.className);
   });
 </script>
 
@@ -77,6 +79,11 @@ import BurgerMenu from './BurgerMenu.astro';
     h1 {
       font-size: var(--font-size-3);
       font-weight: var(--font-weight-5);
+      align-self: center;
+
+      @media (--md-n-below) {
+        font-size: var(--font-size-4);
+      }
     }
 
     a,
@@ -96,7 +103,7 @@ import BurgerMenu from './BurgerMenu.astro';
       margin: 0;
       display: flex;
       align-items: center;
-      gap: var(--size-2);
+      gap: var(--size-4);
     }
 
     nav button {
@@ -105,11 +112,11 @@ import BurgerMenu from './BurgerMenu.astro';
 
     nav svg,
     nav :global(svg) {
-      width: var(--size-6);
+      width: var(--size-);
       aspect-ratio: 1;
 
       @media (--md-n-below) {
-        width: var(--size-7);
+        width: var(--size-8);
       }
     }
 
