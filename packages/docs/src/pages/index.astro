@@ -21,7 +21,7 @@ import TechGrid from '../components/TechGrid.astro';
   <script defer>
     const copyToClipboard = async () => {
       await navigator.clipboard.writeText(
-        document.querySelector<HTMLElement>('#install-command > code').innerText
+        document.querySelector('#install-command > code').innerText
       );
 
       const wrapper = document.getElementById('install-command');
