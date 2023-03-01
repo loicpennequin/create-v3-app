@@ -10,11 +10,11 @@ import TableOfContents from '../components/TableOfContents.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 
 export interface Props {
-  title: string;
+  frontmatter: { title: string; description: string };
   headings: MarkdownHeading[];
 }
 
-const { title, headings } = Astro.props;
+const { frontmatter, headings } = Astro.props;
 ---
 
 <script>
@@ -27,13 +27,13 @@ const { title, headings } = Astro.props;
   });
 </script>
 
-<html lang="en" class="preload">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{frontmatter.title} | Create V3 App</title>
     <script is:inline>
       const LOCAL_STORAGE_KEY = 'dark-mode';
       const html = document.documentElement;
@@ -81,13 +81,6 @@ const { title, headings } = Astro.props;
         </div>
       </Container>
     </Sprite.Provider>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-          document.documentElement.classList.remove('preload');
-        }, 1000);
-      });
-    </script>
   </body>
 </html>
 <style is:global>
@@ -100,7 +93,8 @@ const { title, headings } = Astro.props;
     grid-template-columns: 30ch 1fr 30ch;
 
     @media (--lg-n-below) {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -127,6 +121,7 @@ const { title, headings } = Astro.props;
   .layout > footer {
     padding: var(--size-4);
     text-align: center;
+    margin-block-start: auto;
   }
 
   .layout > aside {
@@ -145,7 +140,7 @@ const { title, headings } = Astro.props;
   main {
     justify-self: center;
     with: 100%;
-    max-width: 60ch;
+    width: 60ch;
 
     @media (--md-n-below) {
       padding-top: var(--size-5);
@@ -160,6 +155,26 @@ const { title, headings } = Astro.props;
 
       @media (--md-n-above) {
         scroll-margin-block-start: 5rem;
+      }
+    }
+
+    & .astro-code {
+      padding: var(--size-2) var(--size-6);
+      border-radius: var(--radius-3);
+    }
+
+    & .remark-code-title {
+      background-color: #191724;
+      padding: var(--size-2) var(--size-5) 0;
+      color: #e0def4;
+      border-top-left-radius: var(--radius-3);
+      border-top-right-radius: var(--radius-3);
+
+      & + .astro-code {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        display: block;
+        max-inline-size: 100%;
       }
     }
   }

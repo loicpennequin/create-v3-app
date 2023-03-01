@@ -20,8 +20,3 @@ body {
 ul {
 	font-size: var(--font-size-1);
 }
-
-.preload * {
-  transition: none !important;
-  animation-duration: 0s !important;
-}

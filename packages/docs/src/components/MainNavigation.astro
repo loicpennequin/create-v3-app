@@ -24,6 +24,10 @@ const menu: MenuItem[] = [
   {
     href: '/docs/folder-structure',
     label: 'Folder Structure'
+  },
+  {
+    href: '/docs/faq',
+    label: 'F.A.Q'
   }
 ];
 
@@ -69,6 +73,6 @@ const isActive = (item: MenuItem) => currentPageMatch === item.href.slice(1);
   }
 
   a.active {
-    background: var(--surface-3);
+    background: var(--color-active);
   }
 </style>

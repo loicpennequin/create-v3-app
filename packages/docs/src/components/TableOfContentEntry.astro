@@ -33,10 +33,12 @@ const { entry, depth } = Astro.props;
   }
   a {
     padding-inline-start: calc(var(--size-2) + var(--depth) * 1ch);
+    border-left: solid 2px var(--surface-4);
     display: block;
 
     &[data-active='true'] {
-      background: var(--surface-3);
+      background: var(--color-active);
+      border-left-color: var(--green-6);
     }
 
     &,

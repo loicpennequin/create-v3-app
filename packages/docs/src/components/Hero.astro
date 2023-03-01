@@ -76,6 +76,10 @@ import homeMeme from '../assets/img/home-meme.jpg';
     margin: 0;
     line-height: var(--font-lineheight-0);
 
+    @media (--md-n-below) {
+      text-align: center;
+    }
+
     & span {
       color: var(--text-1);
     }
@@ -83,10 +87,10 @@ import homeMeme from '../assets/img/home-meme.jpg';
 
   @keyframes hero-image {
     from {
-      transform: rotateY(-5deg) rotateX(-2deg);
+      transform: rotateY(-10deg) rotateX(-2deg);
     }
     to {
-      transform: rotateY(3deg) rotateX(5deg);
+      transform: rotateY(-10deg) rotateX(5deg);
     }
   }
   .image-wrapper {
@@ -105,7 +109,7 @@ import homeMeme from '../assets/img/home-meme.jpg';
   }
 
   figure {
-    perspective: 600px;
+    perspective: 40em;
   }
   figcaption {
     margin-block-start: var(--size-4);

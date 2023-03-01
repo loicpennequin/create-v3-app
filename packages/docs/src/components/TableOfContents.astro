@@ -38,33 +38,32 @@ const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
     }
 
     bindLinks() {
-      const links = this.querySelectorAll<HTMLAnchorElement>('a').forEach(
-        link => {
-          const targetEl = document.getElementById(
-            new URL(link.href).hash.slice(1)
-          );
-          if (!targetEl) return;
+      this.querySelectorAll<HTMLAnchorElement>('a').forEach(link => {
+        const targetEl = document.getElementById(
+          new URL(link.href).hash.slice(1) // remove # sign
+        );
+        if (!targetEl) return;
 
-          new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-              link.dataset.inViewport = String(entry.isIntersecting);
+        new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              link.dataset.inViewport = 'true';
+            } else {
+              link.dataset.inViewport = 'false';
+              link.dataset.active = 'false';
+            }
+            const visibleElements = [
+              ...this.querySelectorAll<HTMLAnchorElement>(
+                '[data-in-viewport="true"]'
+              )
+            ];
 
-              if (!entry.isIntersecting) {
-                link.dataset.active = 'false';
-              }
-              const visibleElements = [
-                ...this.querySelectorAll<HTMLAnchorElement>(
-                  '[data-in-viewport="true"]'
-                )
-              ];
-
-              visibleElements.forEach((el, index) => {
-                el.dataset.active = String(index === 0);
-              });
+            visibleElements.forEach((el, index) => {
+              el.dataset.active = String(index === 0);
             });
-          }).observe(targetEl!);
-        }
-      );
+          });
+        }).observe(targetEl!);
+      });
     }
   }
 
@@ -98,11 +97,6 @@ const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
 
   ul {
     padding-left: var(--size-2);
-    border-left: solid 1px var(--surface-4);
     list-style: none;
-  }
-
-  #toc :global([data-active='true']) {
-    background: var(--surface-3);
   }
 </style>

@@ -2,6 +2,7 @@
 import Container from './Container.astro';
 import { Sprite } from 'astro-icon';
 import MainNavigation from './MainNavigation.astro';
+import BurgerMenu from './BurgerMenu.astro';
 ---
 
 <script>
@@ -10,7 +11,7 @@ import MainNavigation from './MainNavigation.astro';
 
   document.getElementById('dark-mode-toggle')!.addEventListener('click', () => {
     html.classList.toggle('dark');
-
+    console.log(html.className);
     localStorage.setItem(
       LOCAL_STORAGE_KEY,
       html.classList.contains('dark') as any
@@ -18,80 +19,6 @@ import MainNavigation from './MainNavigation.astro';
   });
 </script>
 
-<script>
-  const burgerMenu = document.querySelector<HTMLElement>('.burger-menu')!;
-  const burgerInput = document.getElementById(
-    'menu-toggle'
-  )! as HTMLInputElement;
-  const burgerToggles =
-    document.querySelectorAll<HTMLElement>('[data-menu-toggle]');
-
-  function getMenuFocusableElements() {
-    return [
-      ...burgerMenu.querySelectorAll<HTMLElement>(
-        'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
-      )
-    ].filter(
-      el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
-    );
-  }
-
-  function handleCloseOnEscape(e: KeyboardEvent) {
-    if (e.code === 'Escape') {
-      burgerInput.checked = false;
-    }
-  }
-  function handleToggleKeyup(el: HTMLElement) {
-    el.addEventListener('keyup', e => {
-      if (e.code === 'Enter') el.click();
-    });
-  }
-
-  function handleInputChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    if (target.checked) {
-      getMenuFocusableElements()[0].focus();
-    } else {
-      burgerToggles[0].focus();
-    }
-  }
-
-  function handleMenuClickOutside(e: MouseEvent) {
-    const target = e.target as HTMLElement;
-    const isInside = burgerMenu === target || burgerMenu.contains(target);
-    const isInsideToggle = [...burgerToggles].some(
-      toggle => toggle === target || toggle.contains(target)
-    );
-
-    if (!isInside && !isInsideToggle) {
-      burgerInput.checked = false;
-    }
-  }
-
-  function trapFocusInsideMenu(e: KeyboardEvent) {
-    if (e.code !== 'Tab') return;
-    const focusableElements = getMenuFocusableElements();
-    const firstEl = focusableElements[0];
-    const lastEl = focusableElements.at(-1);
-    if (e.shiftKey) {
-      if (document.activeElement === firstEl) {
-        lastEl?.focus();
-        e.preventDefault();
-      }
-    } else {
-      if (document.activeElement === lastEl) {
-        firstEl.focus();
-        e.preventDefault();
-      }
-    }
-  }
-
-  burgerToggles.forEach(handleToggleKeyup);
-  burgerInput.addEventListener('change', handleInputChange);
-  burgerMenu.addEventListener('keydown', trapFocusInsideMenu);
-  document.addEventListener('click', handleMenuClickOutside);
-  window.addEventListener('keyup', handleCloseOnEscape);
-</script>
 <header>
   <Container class="inner">
     <h1><a href="/">Create V3 app</a></h1>
@@ -120,200 +47,119 @@ import MainNavigation from './MainNavigation.astro';
           </button>
         </li>
         <li>
-          <label
-            aria-label="toggle menu"
-            title="toggle menu"
-            for="menu-toggle"
-            tabindex="0"
-            data-menu-toggle
-          >
-            <Sprite name="mdi:menu" />
-
-            <input
-              type="checkbox"
-              class="sr-only"
-              id="menu-toggle"
-              tabindex="-1"
-            />
-          </label>
+          <BurgerMenu />
         </li>
       </ul>
     </nav>
   </Container>
-  <div class="burger-menu-overlay">
-    <div class="burger-menu">
-      <header>
-        <h2>Menu</h2>
-        <label
-          aria-label="toggle menu"
-          title="toggle menu"
-          for="menu-toggle"
-          tabindex="0"
-          data-menu-toggle
-        >
-          <Sprite name="mdi:close" size="2rem" />
-        </label>
-      </header>
-      <MainNavigation />
-    </div>
-  </div>
 
   <slot />
-</header>
 
-<style>
-  @import 'open-props/media';
+  <style>
+    @import 'open-props/media';
 
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: var(--surface-1);
-  }
-
-  .inner {
-    padding: var(--size-5) 0;
-    display: flex;
-    justify-content: space-between;
-    @media (--md-n-below) {
-      padding: var(--size-3) 0;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: var(--surface-1);
     }
-  }
 
-  h1 {
-    font-size: var(--font-size-3);
-    font-weight: var(--font-weight-5);
-  }
-
-  a,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-  }
-
-  :not(h1) a:hover {
-    color: var(--text-2);
-  }
-
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: var(--size-2);
-  }
-
-  nav button {
-    background: transparent;
-  }
-
-  nav svg {
-    width: var(--size-6);
-    aspect-ratio: 1;
-
-    @media (--md-n-below) {
-      width: var(--size-7);
-    }
-  }
-
-  li {
-    padding: 0;
-  }
-
-  li > a,
-  li > button {
-    padding: 0;
-    margin: 0;
-    display: block;
-  }
-
-  li:last-of-type {
-    display: none;
-  }
-
-  @media (--md-n-below) {
-    li:last-of-type {
-      display: block;
-    }
-    li:first-of-type {
-      display: none;
-    }
-  }
-
-  #dark-mode-toggle {
-    & > svg:nth-of-type(2) {
-      display: none;
-    }
-    @media (--OSdark) {
-      & > svg:nth-of-type(1) {
-        display: none;
-      }
-      & > svg:nth-of-type(2) {
-        display: block;
-      }
-    }
-  }
-
-  :global(html.dark) {
-    #dark-mode-toggle {
-      & > svg:nth-of-type(1) {
-        display: none;
-      }
-      & > svg:nth-of-type(2) {
-        display: block;
-      }
-    }
-  }
-
-  .inner:has(#menu-toggle:not(:checked)) + .burger-menu-overlay {
-    animation: var(--animation-fade-out) forwards;
-    background-color: transparent;
-    pointer-events: none;
-
-    & .burger-menu {
-      animation: var(--animation-slide-out-left);
-      animation-fill-mode: forwards;
-
-      & :global(*) {
-        display: none !important;
-      }
-    }
-  }
-
-  .burger-menu-overlay {
-    background: hsl(var(--gray-11-hsl) / 0.7);
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    transition: background-color 0.3s;
-
-    @media (--md-n-above) {
-      display: none;
-    }
-  }
-
-  .burger-menu {
-    width: 80%;
-    height: 100%;
-    background-color: var(--surface-1);
-    padding: var(--size-1) var(--size-3);
-    animation: var(--animation-slide-in-right);
-    animation-timing-function: var(--size-3);
-    animation-duration: 0.3s;
-
-    & header {
+    .inner {
+      padding: var(--size-5) 0;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-block-end: var(--size-3);
-      padding-block-end: var(--size-3);
-      border-bottom: solid 1px var(--surface-4);
+      @media (--md-n-below) {
+        padding: var(--size-3) 0;
+      }
     }
 
-    & h2 {
-      font-size: var(--font-size-4);
+    h1 {
+      font-size: var(--font-size-3);
+      font-weight: var(--font-weight-5);
     }
-  }
-</style>
+
+    a,
+    a:visited {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    :not(h1) a:hover {
+      color: var(--text-2);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--size-2);
+    }
+
+    nav button {
+      background: transparent;
+    }
+
+    nav svg,
+    nav :global(svg) {
+      width: var(--size-6);
+      aspect-ratio: 1;
+
+      @media (--md-n-below) {
+        width: var(--size-7);
+      }
+    }
+
+    li {
+      padding: 0;
+    }
+
+    li > a,
+    li > button {
+      padding: 0;
+      margin: 0;
+      display: block;
+    }
+
+    li:last-of-type {
+      display: none;
+    }
+
+    @media (--md-n-below) {
+      li:last-of-type {
+        display: block;
+      }
+      li:first-of-type {
+        display: none;
+      }
+    }
+
+    #dark-mode-toggle {
+      & > svg:nth-of-type(2) {
+        display: none;
+      }
+      @media (--OSdark) {
+        & > svg:nth-of-type(1) {
+          display: none;
+        }
+        & > svg:nth-of-type(2) {
+          display: block;
+        }
+      }
+    }
+
+    :global(html.dark) {
+      #dark-mode-toggle {
+        & > svg:nth-of-type(1) {
+          display: none;
+        }
+        & > svg:nth-of-type(2) {
+          display: block;
+        }
+      }
+    }
+  </style>
+</header>

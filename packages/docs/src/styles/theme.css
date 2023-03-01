@@ -6,6 +6,7 @@
   --font-size-12: 7.5rem;
 
   --border: var(--surface-4);
+	--color-active: var(--surface-3);
 }
 
 html:not(.dark) {

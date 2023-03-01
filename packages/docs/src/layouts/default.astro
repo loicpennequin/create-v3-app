@@ -13,7 +13,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<html lang="en" class="preload">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -50,13 +50,6 @@ const { title } = Astro.props;
         </a>
       </footer>
     </Sprite.Provider>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-          document.documentElement.classList.remove('preload');
-        }, 1000);
-      });
-    </script>
   </body>
 </html>
 <style is:global>
