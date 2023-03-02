@@ -7,8 +7,8 @@ lang: en
 
 ## Divergences from the T3 stack
 
-TODO open props / fuck tailwind
+Despite taking inspiration from the T3 stack, `create-v3-app` takes its own spin with fullstack web development, due to opinions, and technical limitations.
 
-TODO tRPC usage
+### Styling
 
-TODO meme about how nuxt based and next cringe
+As you may have already noticed, `create-v3-app` doesn't use, nor recommends, Tailwind.

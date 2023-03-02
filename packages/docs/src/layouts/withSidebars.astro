@@ -87,7 +87,11 @@ const { frontmatter, headings } = Astro.props;
       @import '../styles/media';
 
       :root {
-        --header-height: 6.5rem;
+        --header-height: 5rem;
+
+        @media (--md-n-below) {
+          --header-height: 6.5rem;
+        }
       }
 
       .layout {
@@ -151,10 +155,24 @@ const { frontmatter, headings } = Astro.props;
           height: calc(100vh - var(--header-height));
           overflow-y: auto;
           overflow-x: hidden;
+          scrollbar-color: var(--gray-8) transparent;
+          scrollbar-width: thin;
 
-          @media (--md-n-below) {
-            display: none;
+          &::-webkit-scrollbar-thumb {
+            background-color: var(--gray-8);
           }
+          &::-webkit-scrollbar-track {
+            background-color: transparent;
+          }
+
+          &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+          }
+        }
+
+        @media (--md-n-below) {
+          display: none;
         }
       }
 
