@@ -10,12 +10,13 @@ export interface Props {
 
 const { class: className, headings } = Astro.props;
 
-const headingsWithChildren: ToCEntry[] = [];
+const toc: ToCEntry[] = [];
 
 headings.forEach((heading, index) => {
-  const prev = headingsWithChildren[index - 1];
+  const prev = toc[index - 1];
   const entry: ToCEntry = { ...heading, children: [] };
-  headingsWithChildren.push(entry);
+
+  toc.push(entry);
 
   if (!prev) return;
   if (prev.depth < entry.depth) {
@@ -27,7 +28,7 @@ headings.forEach((heading, index) => {
   }
 });
 
-const rootHeadings = headingsWithChildren.filter(heading => !heading.parent);
+const rootHeadings = toc.filter(entry => !entry.parent);
 ---
 
 <script>

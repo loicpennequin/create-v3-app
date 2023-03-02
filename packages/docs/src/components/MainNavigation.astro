@@ -26,9 +26,14 @@ const menu: MenuItem[] = [
     label: 'Folder Structure'
   },
   {
+    href: '/docs/divergences-from-the-t3-stack',
+    label: 'Divergences from the T3 stack'
+  },
+  {
     href: '/docs/faq',
     label: 'F.A.Q'
-  }
+  },
+  { href: '/docs/about-the-author', label: 'Who made this ?' }
 ];
 
 const isActive = (item: MenuItem) => currentPageMatch === item.href.slice(1);

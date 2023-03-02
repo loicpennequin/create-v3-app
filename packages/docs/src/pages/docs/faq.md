@@ -7,13 +7,19 @@ lang: en
 
 ## FAQ
 
-```vue:hello.js
-<script setup lang="ts">
-const foo = ref(0);
-</script>
-<template>
-  <div>
-    {{ foo }}
-  </div>
-</template>
-```
+### Can u add tailwind tho
+
+No because tailwind peepeepoopoo.
+
+### Can u add x, y ,or z ?
+
+The setup will be more complete in the _Entreprise Edition UltraDeluxe™_ version. What exactly will be in here is absolutely noot set in stone at the moment. Discussions welcome !
+I do however plan on adding a setup for testing. Testing is not optional and should be taken seriously in any sizeable application. "Buy safety nets, **AND** guard rails".
+
+### Why can't I customize the CLI output like in the `create-t3-app` ?
+
+Because I'm lazy. But it's on the roadmap !
+
+### Why are those docs so bad ?
+
+I am not a clever person.
