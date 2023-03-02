@@ -1,0 +1,62 @@
+---
+const SITE = {
+  title: 'Create V3 App',
+  description: 'A starter kit for Nuxt applications based on the T3 Stack',
+  defaultLanguage: 'en_US'
+};
+
+const OPEN_GRAPH = {
+  image: {
+    src: 'images/og-image.jpg',
+    alt: 'Create V3 App: A starter kit for Nuxt applications based on the T3 Stack'
+  }
+};
+
+export type Frontmatter = {
+  title: string;
+  description: string;
+  image?: { src: string; alt: string };
+  dir?: 'ltr' | 'rtl';
+  ogLocale?: string;
+  isMdx?: boolean;
+};
+
+export interface Props {
+  frontmatter?: Frontmatter;
+  type?: string;
+}
+
+const { frontmatter, type } = Astro.props as Props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+
+const formattedContentTitle = frontmatter
+  ? `${frontmatter.title} 🚀 ${SITE.title}`
+  : SITE.title;
+
+const imageSrc = frontmatter?.image?.src ?? OPEN_GRAPH.image.src;
+const imageUrl = new URL(imageSrc, Astro.url.origin);
+const imageAlt = frontmatter?.image?.alt ?? OPEN_GRAPH.image.alt;
+
+const ogType = type ?? 'article';
+---
+
+<!-- Page Metadata -->
+<link rel="canonical" href={canonicalUrl} />
+<meta name="description" property="og:description" content={SITE.description} />
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content={formattedContentTitle} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:locale" content={SITE.defaultLanguage} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
+<meta property="og:site_name" content={SITE.title} />
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={formattedContentTitle} />
+<meta name="twitter:description" content={SITE.description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />

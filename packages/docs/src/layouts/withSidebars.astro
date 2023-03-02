@@ -8,6 +8,8 @@ import SkipToContent from '../components/SkipToContent.astro';
 import { Sprite } from 'astro-icon';
 import TableOfContents from '../components/TableOfContents.astro';
 import MainNavigation from '../components/MainNavigation.astro';
+import Head from '../components/Head.astro';
+import HeadSEO from '../components/HeadSEO.astro';
 
 export interface Props {
   frontmatter: { title: string; description: string };
@@ -18,31 +20,31 @@ const { frontmatter, headings } = Astro.props;
 ---
 
 <script>
-  const tocMobile = document.getElementById('toc-mobile')!;
+  const tocMobile = document.getElementById(
+    'toc-mobile'
+  )! as HTMLDetailsElement;
 
   tocMobile.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(el => {
     el.addEventListener('click', () => {
       tocMobile.removeAttribute('open');
     });
   });
+
+  document.addEventListener('click', e => {
+    if (!tocMobile.open) return;
+    const target = e.target as HTMLElement;
+
+    if (target !== tocMobile && !tocMobile.contains(target)) {
+      tocMobile.open = false;
+    }
+  });
 </script>
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <Head />
+    <HeadSEO frontmatter={frontmatter} />
     <title>{frontmatter.title} | Create V3 App</title>
-    <script is:inline>
-      const LOCAL_STORAGE_KEY = 'color-mode';
-      const html = document.documentElement;
-
-      const colorMode = localStorage.getItem(LOCAL_STORAGE_KEY);
-      if (colorMode) {
-        html.classList.add(colorMode);
-      }
-    </script>
   </head>
   <body>
     <Sprite.Provider>
@@ -81,145 +83,154 @@ const { frontmatter, headings } = Astro.props;
         </div>
       </Container>
     </Sprite.Provider>
+    <style is:global>
+      @import '../styles/media';
+
+      :root {
+        --header-height: 6.5rem;
+      }
+
+      .layout {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 30ch 1fr 30ch;
+        column-gap: var(--size-2);
+
+        @media (--lg-n-below) {
+          grid-template-columns: 30ch 1fr;
+        }
+        @media (--md-n-below) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      #toc-mobile {
+        background: transparent;
+
+        & > summary {
+          width: fit-content;
+        }
+        @media (--lg-n-above) {
+          display: none;
+        }
+      }
+
+      .toc-mobile-content {
+        box-shadow: var(--shadow-2);
+        max-height: clamp(50vh, 40rem, calc(100vh - var(--header-height)));
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        box-shadow: var(--shadow-3);
+      }
+
+      .layout > header,
+      .layout > footer {
+        grid-column: 1 / -1;
+      }
+      .layout > footer {
+        padding: var(--size-4);
+        text-align: center;
+        margin-block-start: auto;
+      }
+
+      .layout > aside {
+        align-self: start;
+        position: sticky;
+        top: 5rem;
+        z-index: 2;
+
+        &:nth-of-type(1) {
+          @media (--md-n-below) {
+            display: none;
+            float: left;
+          }
+        }
+        &:nth-of-type(2) {
+          height: calc(100vh - var(--header-height));
+          overflow-y: auto;
+          overflow-x: hidden;
+
+          @media (--md-n-below) {
+            display: none;
+          }
+        }
+      }
+
+      main {
+        justify-self: center;
+        width: 100%;
+        max-width: 80ch;
+
+        @media (--md-n-below) {
+          padding-block-start: var(--size-5);
+        }
+
+        & h2 {
+          margin-block: var(--size-8) var(--size-5);
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+
+        & h3 {
+          font-weight: var(--font-weight-6);
+          margin-block: var(--size-6) var(--size-4);
+        }
+
+        & h4 {
+          font-weight: var(--font-weight-5);
+          margin-block: var(--size-4) var(--size-3);
+        }
+
+        & h5 {
+          font-weight: var(--font-weight-4);
+        }
+
+        & p {
+          margin-block: var(--size-5);
+        }
+
+        & :is(p, h2, h3, h4) {
+          max-inline-size: var(--size-content-4);
+        }
+        & :is(h2, h3, h4) {
+          scroll-margin-block-start: var(--header-height);
+        }
+
+        & pre {
+          border: solid 1px var(--green-5);
+        }
+
+        & .astro-code {
+          padding: var(--size-2) var(--size-5);
+          border-radius: var(--radius-2);
+        }
+
+        & .remark-code-title {
+          background-color: #282a36;
+          padding: var(--size-2) var(--size-5);
+          color: #f8f8f2;
+          border-top-left-radius: var(--radius-2);
+          border-top-right-radius: var(--radius-2);
+          border: solid 1px var(--green-5);
+          border-bottom-color: transparent;
+
+          & + .astro-code {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            display: block;
+            max-inline-size: 100%;
+          }
+        }
+
+        & .image--small {
+          width: 12em;
+          margin-inline: auto;
+        }
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  @import '../styles/media';
-
-  .layout {
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 30ch 1fr 30ch;
-    column-gap: var(--size-2);
-
-    @media (--lg-n-below) {
-      grid-template-columns: 30ch 1fr;
-    }
-    @media (--md-n-below) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  #toc-mobile {
-    background: transparent;
-
-    & > summary {
-      width: fit-content;
-    }
-    @media (--lg-n-above) {
-      display: none;
-    }
-  }
-
-  .toc-mobile-content {
-    box-shadow: var(--shadow-2);
-    width: fit-content;
-  }
-
-  .layout > header,
-  .layout > footer {
-    grid-column: 1 / -1;
-  }
-  .layout > footer {
-    padding: var(--size-4);
-    text-align: center;
-    margin-block-start: auto;
-  }
-
-  .layout > aside {
-    align-self: start;
-    position: sticky;
-    top: 5rem;
-    z-index: 2;
-
-    &:nth-of-type(1) {
-      @media (--md-n-below) {
-        display: none;
-        float: left;
-      }
-    }
-    &:nth-of-type(2) {
-      @media (--md-n-below) {
-        display: none;
-      }
-    }
-  }
-
-  main {
-    justify-self: center;
-    width: 100%;
-    max-width: 80ch;
-
-    @media (--md-n-below) {
-      padding-top: var(--size-5);
-    }
-
-    & h2 {
-      margin-block: var(--size-8) var(--size-5);
-
-      &:first-of-type {
-        margin-top: 0;
-      }
-    }
-
-    & h3 {
-      font-weight: var(--font-weight-6);
-      margin-block: var(--size-6) var(--size-4);
-    }
-
-    & h4 {
-      font-weight: var(--font-weight-5);
-      margin-block: var(--size-4) var(--size-3);
-    }
-
-    & h5 {
-      font-weight: var(--font-weight-4);
-    }
-
-    & p {
-      margin-block: var(--size-5);
-    }
-
-    & :is(p, h2, h3, h4) {
-      max-inline-size: var(--size-content-4);
-    }
-    & :is(h2, h3, h4) {
-      scroll-margin-block-start: 6.5rem;
-
-      @media (--md-n-above) {
-        scroll-margin-block-start: 5rem;
-      }
-    }
-
-    & pre {
-      border: solid 1px var(--green-5);
-    }
-    & .astro-code {
-      padding: var(--size-2) var(--size-5);
-      border-radius: var(--radius-2);
-    }
-
-    & .remark-code-title {
-      background-color: #282a36;
-      padding: var(--size-2) var(--size-5);
-      color: #f8f8f2;
-      border-top-left-radius: var(--radius-2);
-      border-top-right-radius: var(--radius-2);
-      border: solid 1px var(--green-5);
-      border-bottom-color: transparent;
-
-      & + .astro-code {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        display: block;
-        max-inline-size: 100%;
-      }
-    }
-
-    & .image--small {
-      width: 12em;
-      margin-inline: auto;
-    }
-  }
-</style>
