@@ -32,7 +32,8 @@ const { entry, depth } = Astro.props;
     padding: 0;
   }
   a {
-    padding-inline-start: calc(var(--size-2) + var(--depth) * 1ch);
+    --offset: calc(var(--size-2) + var(--depth) * 2ch);
+    padding: 0 0 var(--size-3) var(--offset);
     border-left: solid 2px var(--surface-4);
     display: block;
 

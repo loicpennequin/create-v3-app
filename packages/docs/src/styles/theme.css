@@ -8,7 +8,7 @@
 	--size-content-4: 80ch;
 
   --border: var(--surface-4);
-	--color-active: var(--surface-3);
+	--color-active: hsl(var(--green-5-hsl) / 0.3);
 }
 
 /* LIGHT THEME */

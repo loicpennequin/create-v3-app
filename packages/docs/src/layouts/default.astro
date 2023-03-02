@@ -20,7 +20,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script is:inline>
-      const LOCAL_STORAGE_KEY = 'dark-mode';
+      const LOCAL_STORAGE_KEY = 'color-mode';
       const html = document.documentElement;
 
       const colorMode = localStorage.getItem(LOCAL_STORAGE_KEY);

@@ -14,7 +14,6 @@ import BurgerMenu from './BurgerMenu.astro';
     .addEventListener('click', () => {
       const newMode = html.classList.contains('dark') ? 'light' : 'dark';
       html.className = newMode;
-
       localStorage.setItem(LOCAL_STORAGE_KEY, newMode);
     });
 </script>

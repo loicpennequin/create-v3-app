@@ -5,58 +5,34 @@ layout: ../../layouts/withSidebars.astro
 lang: en
 ---
 
-## A
+## Getting Started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
+To scaffold an app using `create-v3-app`, run any of the following three commands and answer the command prompt questions:
 
-### AA
+Using npm
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
+```bash
+npm create v3-app@latest
+```
 
-### AB
+Using yarn
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
+```bash
+yarn create v3-app
+```
 
-### AC
+Using pnpm
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
+```bash
+pnpm create v3-app@latest
+```
 
-#### ACA
+At this moment, the CLI tool doesn't offer any customization for your template. This will be changed in the future, as you will be able to opt in every piece of the stack, with the exception of Nuxt and TypeScript.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
+## Advanced usage
 
-#### ACB
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-## B
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-### BA
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-### One with a very long title that will not fit on one line
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-#### BBA
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-#### BBB
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-#### BBC
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-### BC
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
-
-#### BCA
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet orci quam. Sed tincidunt mauris non neque ornare accumsan. Phasellus sit amet nisl blandit dolor eleifend finibus. Aliquam auctor lacinia semper. Vestibulum a porta dolor. Nullam sapien nisl, venenatis in nisi vitae, venenatis lacinia tellus. Nam sed erat vitae enim cursus efficitur. Morbi facilisis nisi ut lectus sagittis, id auctor sapien congue. Fusce in ligula est. Nullam sed laoreet diam. Mauris metus leo, bibendum quis elit in, pharetra ullamcorper diam. Aenean ultrices fermentum nibh, ut ultricies nisi. Etiam ultricies, erat eget fringilla blandit, ex risus dapibus lorem, pharetra condimentum tortor arcu sollicitudin sapien.
+| Option/Flag   | Description                                                             |
+| ------------- | ----------------------------------------------------------------------- |
+| `[dir]`       | Include a directory argument with a name for the project                |
+| `--noGit`     | Explicitly tell the CLI to not initialize a new git repo in the project |
+| `--noInstall` | Generate project without installing dependencies                        |

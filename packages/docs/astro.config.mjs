@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkCodeTitles from 'remark-code-titles';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,15 +10,21 @@ export default defineConfig({
     remarkPlugins: [remarkCodeTitles],
     rehypePlugins: [
       [
-        rehypeAutolinkHeadings,
+        rehypeExternalLinks,
         {
-          properties: {},
-          behavior: 'wrap'
+          target: '_blank',
+          rel: ['noreferrer noopener'],
+          content: {
+            type: 'text',
+            value: '↗'
+          }
         }
-      ]
+      ],
+      'rehype-slug',
+      ['rehype-autolink-headings', { behavior: 'append' }]
     ],
     shikiConfig: {
-      theme: 'rose-pine',
+      theme: 'dracula',
       wrap: true
     }
   }
