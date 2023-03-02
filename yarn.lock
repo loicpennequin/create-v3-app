@@ -7850,6 +7850,11 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
+number-precision@^1.3.2:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/number-precision/-/number-precision-1.6.0.tgz#e309d28f80871d36ac9f6ecd974e13afb1ec0de0"
+  integrity sha512-05OLPgbgmnixJw+VvEh18yNPUo3iyp4BEWJcrLu4X9W05KmMifN7Mu5exYvQXqxxeNWhvIF+j3Rij+HmddM/hQ==
+
 "nuxi@npm:nuxi-edge@3.2.3-rc.0-27949872.7479d46":
   version "3.2.3-rc.0-27949872.7479d46"
   resolved "https://registry.yarnpkg.com/nuxi-edge/-/nuxi-edge-3.2.3-rc.0-27949872.7479d46.tgz#028ba8d2fa1442a04fdadb804cef62ed947765ef"
@@ -8383,6 +8388,14 @@ pngjs@^3.0.0, pngjs@^3.3.3:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-3.4.0.tgz#99ca7d725965fb655814eaf65f38f12bbdbf555f"
   integrity sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==
 
+postcss-aspect-ratio-mini@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-aspect-ratio-mini/-/postcss-aspect-ratio-mini-1.1.0.tgz#1c3e3e017343a04eaa231f25696b767f13aec7ee"
+  integrity sha512-ddD7k55Rez1La9tmyzZOlS6bAXF9EWpyXQz3eXScJfvcVmPsx33rOwVpN2d5ZRVOjAmkWgyOMV8sZ46rnIyiDg==
+  dependencies:
+    number-precision "^1.3.2"
+    postcss "^7.0.6"
+
 postcss-calc@^8.2.3:
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/postcss-calc/-/postcss-calc-8.2.4.tgz#77b9c29bfcbe8a07ff6693dc87050828889739a5"
@@ -8688,7 +8701,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@7.x.x:
+postcss@7.x.x, postcss@^7.0.6:
   version "7.0.39"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
   integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==

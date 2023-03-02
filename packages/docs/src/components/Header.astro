@@ -111,10 +111,11 @@ import BurgerMenu from './BurgerMenu.astro';
   nav svg,
   nav :global(svg) {
     width: var(--size-6);
-    aspect-ratio: 1;
+    height: var(--size-6);
 
     @media (--md-n-below) {
       width: var(--size-7);
+      height: var(--size-7);
     }
   }
 
