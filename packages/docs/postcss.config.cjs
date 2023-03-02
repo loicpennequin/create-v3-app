@@ -3,6 +3,7 @@ module.exports = {
     require('autoprefixer'),
     require('cssnano'),
     require('postcss-scrollbar'),
+    require('postcss-inset'),
     require('postcss-jit-props')(require('open-props')),
     require('postcss-nesting')({ noIsPseudoSelector: false }),
     require('postcss-custom-media')({ preserve: false })

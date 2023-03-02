@@ -20,6 +20,7 @@
     "cssnano": "^5.1.15",
     "postcss": "^8.4.21",
     "postcss-custom-media": "^9.1.2",
+    "postcss-inset": "^1.0.0",
     "postcss-jit-props": "^1.0.12",
     "postcss-nesting": "^11.2.1",
     "postcss-scrollbar": "^0.5.1",
