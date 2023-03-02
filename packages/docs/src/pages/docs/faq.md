@@ -7,11 +7,11 @@ lang: en
 
 ## FAQ
 
-### Can u add tailwind tho
+### Can you add tailwind though ? Pretty please ?
 
-No because tailwind peepeepoopoo.
+💀💀💀
 
-### Can u add x, y ,or z ?
+### Can you add x, y ,or z ?
 
 The setup will be more complete in the _Entreprise Edition UltraDeluxe™_ version. What exactly will be in here is absolutely not set in stone at the moment. Discussions welcome !
 

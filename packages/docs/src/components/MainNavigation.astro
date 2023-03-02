@@ -26,8 +26,8 @@ const menu: MenuItem[] = [
     label: 'Folder Structure'
   },
   {
-    href: '/docs/divergences-from-the-t3-stack',
-    label: 'Divergences from the T3 stack'
+    href: '/docs/why-no-tailwind',
+    label: 'Why not using Tailwind ?'
   },
   {
     href: '/docs/faq',
@@ -40,6 +40,7 @@ const isActive = (item: MenuItem) => currentPageMatch === item.href.slice(1);
 ---
 
 <nav>
+  <h2>Create V3 App</h2>
   <ul>
     {
       menu.map(item => (
@@ -51,10 +52,18 @@ const isActive = (item: MenuItem) => currentPageMatch === item.href.slice(1);
       ))
     }
   </ul>
+  <h2>Usage</h2>
+  TODO
 </nav>
 
 <style>
+  h2 {
+    font-weight: var(--font-weight-7);
+    font-size: var(--font-size-4);
+    margin-block-end: var(--size-3);
+  }
   ul {
+    margin-block-end: var(--size-8);
     list-style: none;
     padding-inline: 0;
   }

@@ -222,6 +222,18 @@ const { frontmatter, headings } = Astro.props;
           border: solid 1px var(--green-5);
         }
 
+        & ul {
+          padding-inline-start: var(--size-5);
+
+          & li {
+            max-inline-size: 100%;
+          }
+
+          & li + li {
+            margin-block-start: var(--size-3);
+          }
+        }
+
         & .astro-code {
           padding: var(--size-2) var(--size-5);
           border-radius: var(--radius-2);
