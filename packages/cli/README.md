@@ -3,20 +3,25 @@
 </h1>
 
 <p align="center">
-  Nuxt port of create-t3-app, with some tweaks OMEGALUL KEKW KEKW EZPEPE
+  Nuxt starter kit inspired by create-t3-app
 </p>
+
+<div align="center">
+
+[![PRs-Welcome][contribute-image]][contribute-url] [![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+
+</div>
 
 ## Table of contents
 
-- <a href="#axioms">V3 Axioms</a>
+- <a href="#about">The V3 Stack</a>
 - <a href="#getting-started">Getting Started</a>
-- <a href="#community">Community</a>
-- <a href="#contributing">Contributing</a>
+- <a href="#docs">Documentation</a>
 
 <h2 id="about">The V3 Stack</h2>
 
-The T3 stack is cool ngl. However, react cringe and vue based fr fr. Also nuxt very based. Hence, Create-v3-app.
-Also no tailwind because bad it is what it is boyz
+The V3 stack is heavily inspired by [the T3 Stack](https://create.t3.gg/) which is a template for full stack applications using NextJS. This is basically a port for Nuxt 3, with a different choice when it comes to styling libraries and setup for internationalization.
 
 - [Nuxt](https://nuxt.com/docs)
 - [Open Props](https://open-props.style)
@@ -25,22 +30,6 @@ Also no tailwind because bad it is what it is boyz
 - [tRPC](https://trpc.io)
 - [Nuxt Auth by sidebase](https://sidebase.io/nuxt-auth/getting-started)
 - [Vue-i18n](https://vue-i18n.intlify.dev)
-
-### So... what is `create-v3-app`? A template?
-
-Yes.
-
-<h2 id="axioms">V3 Axioms</h2>
-
-### 1. Be based
-
-- Every time you use an unnecessary div, a kitten dies
-
-### 2. Don't be cringe
-
-- DX !== "omg my first write is so fast pogChamp". People read the code you wrote. Don't be that guy.
-
-### 3. Subscribe to my OnlyF...nevermind
 
 <h2 id="getting-started">Getting Started</h2>
 
@@ -62,12 +51,12 @@ yarn create v3-app
 pnpm create v3-app@latest
 ```
 
-No docs but gimme a minute
+<h2 id="documentation">Documentation</h2>
 
-<h2 id="community">Community</h2>
+For more information please refer to the [documentation](https://create-v3-app.vercel.app) (still in progress)
 
-implying I have friends or people who tolerate me lmao
-
-<h2 id="contributing">Contributing</h2>
-
-Hol up I'm still setting things up WeirdChamp
+[downloads-image]: https://img.shields.io/npm/dm/create-v3-app?color=26c95d
+[npm-url]: https://www.npmjs.com/package/create-v3-app
+[npm-image]: https://img.shields.io/npm/v/create-v3-app?color=0b7285&logoColor=0b7285
+[contribute-url]: https://github.com/loicpennequin/create-v3-app
+[contribute-image]: https://img.shields.io/badge/PRs-welcome-green.svg
