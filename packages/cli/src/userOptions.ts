@@ -66,7 +66,7 @@ const getCliArgs = (): Merge<CliOptions, { name: string | undefined }> => {
     )
     .parse(process.argv);
 
-  return program.opts();
+  return { ...program.opts(), name: program.args[0] };
 };
 
 const promptAppName = async (): Promise<string> => {
@@ -113,13 +113,11 @@ const promptInstall = async (): Promise<boolean> => {
 const runCli = async () => {
   const cliArgs = getCliArgs();
 
-  const options = Object.assign(cliArgs, {
+  return Object.assign(cliArgs, {
     name: cliArgs.name || (await promptAppName()),
     noGit: cliArgs.noGit || !(await promptGit()),
     noInstall: cliArgs.noGit || !(await promptInstall())
   });
-
-  return options;
 };
 
 const promptTailwind = async () => {
@@ -145,6 +143,7 @@ const promptTailwind = async () => {
     logger.info(
       "Create V3 App believes in web fundamentals and doesn't support tailwind out of the box."
     );
+    logger.info('See https://create-v3-app.vercel.app/docs/why-no-tailwind');
     logger.info(
       "Don't worry, you can easily setup tailwind yourself by adding the tailwind nuxt module."
     );

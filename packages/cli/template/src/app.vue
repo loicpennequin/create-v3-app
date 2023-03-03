@@ -14,17 +14,6 @@ const { t, locale } = useI18n();
   </NuxtLayout>
 </template>
 
-<style lang="postcss">
-body {
-  background: var(--gradient-4);
-  color: var(--text-1);
-}
-
-.dark body {
-  background: var(--gradient-23);
-}
-</style>
-
 <i18n lang="json">
 {
   "en": {

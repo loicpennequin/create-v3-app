@@ -399,7 +399,7 @@ var getCliArgs = () => {
     "Explicitly tell the CLI to not run the package manager's install command",
     false
   ).parse(process.argv);
-  return program.opts();
+  return { ...program.opts(), name: program.args[0] };
 };
 var promptAppName = async () => {
   const { name } = await inquirer3.prompt({

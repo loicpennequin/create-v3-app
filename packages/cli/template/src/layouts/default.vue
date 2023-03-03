@@ -1,11 +1,12 @@
 <script setup lang="ts">
 useI18n();
 
+const switchLocalePath = useSwitchLocalePath();
+
 const trpc = useTrpc();
 const { data: title, suspense } = useQuery(['title'], () => trpc.title.query());
-onServerPrefetch(suspense);
 
-const switchLocalePath = useSwitchLocalePath();
+await suspense;
 </script>
 
 <template>
@@ -41,6 +42,15 @@ const switchLocalePath = useSwitchLocalePath();
 
 <style lang="postcss" scoped>
 @import 'open-props/media';
+
+:global(body) {
+  background: var(--gradient-4);
+  color: var(--text-1);
+}
+
+:global(html.dark body) {
+  background: var(--gradient-23);
+}
 
 .layout {
   display: grid;
