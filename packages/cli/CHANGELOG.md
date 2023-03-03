@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.1.6
+
+### Patch Changes
+
+- [`1f2954b`](https://github.com/loicpennequin/create-v3-app/commit/1f2954bd2fd0a3eb127c530d589d3082e7cd8341) Thanks [@loicpennequin](https://github.com/loicpennequin)! - fix wrong arg path
+
 ## 0.1.5
 
 ### Patch Changes
