@@ -1,1 +1,252 @@
-{"inputs":{"src/constants.ts":{"bytes":425,"imports":[{"path":"path","kind":"import-statement","external":true},{"path":"url","kind":"import-statement","external":true},{"path":"figlet","kind":"import-statement","external":true}],"format":"esm"},"src/gui.ts":{"bytes":1095,"imports":[{"path":"chalk","kind":"import-statement","external":true},{"path":"gradient-string","kind":"import-statement","external":true},{"path":"src/constants.ts","kind":"import-statement","original":"./constants.js"}],"format":"esm"},"src/createProject.ts":{"bytes":2338,"imports":[{"path":"path","kind":"import-statement","external":true},{"path":"fs-extra","kind":"import-statement","external":true},{"path":"ora","kind":"import-statement","external":true},{"path":"inquirer","kind":"import-statement","external":true},{"path":"src/constants.ts","kind":"import-statement","original":"./constants.js"},{"path":"src/gui.ts","kind":"import-statement","original":"./gui.js"}],"format":"esm"},"src/git.ts":{"bytes":3803,"imports":[{"path":"chalk","kind":"import-statement","external":true},{"path":"child_process","kind":"import-statement","external":true},{"path":"execa","kind":"import-statement","external":true},{"path":"fs-extra","kind":"import-statement","external":true},{"path":"inquirer","kind":"import-statement","external":true},{"path":"ora","kind":"import-statement","external":true},{"path":"path","kind":"import-statement","external":true},{"path":"src/gui.ts","kind":"import-statement","original":"./gui.js"}],"format":"esm"},"src/utils.ts":{"bytes":1545,"imports":[{"path":"path","kind":"import-statement","external":true}],"format":"esm"},"src/installDependencies.ts":{"bytes":2213,"imports":[{"path":"chalk","kind":"import-statement","external":true},{"path":"execa","kind":"import-statement","external":true},{"path":"ora","kind":"import-statement","external":true},{"path":"src/gui.ts","kind":"import-statement","original":"./gui.js"},{"path":"src/utils.ts","kind":"import-statement","original":"./utils.js"}],"format":"esm"},"src/logNextSteps.ts":{"bytes":610,"imports":[{"path":"src/gui.ts","kind":"import-statement","original":"./gui.js"},{"path":"./userOptions.js","kind":"import-statement","external":true},{"path":"src/utils.ts","kind":"import-statement","original":"./utils.js"}],"format":"esm"},"src/userOptions.ts":{"bytes":4666,"imports":[{"path":"commander","kind":"import-statement","external":true},{"path":"type-fest","kind":"import-statement","external":true},{"path":"inquirer","kind":"import-statement","external":true},{"path":"asciify-image","kind":"import-statement","external":true},{"path":"path","kind":"import-statement","external":true},{"path":"src/constants.ts","kind":"import-statement","original":"./constants.js"},{"path":"src/utils.ts","kind":"import-statement","original":"./utils.js"},{"path":"src/gui.ts","kind":"import-statement","original":"./gui.js"}],"format":"esm"},"src/index.ts":{"bytes":1116,"imports":[{"path":"src/createProject.ts","kind":"import-statement","original":"./createProject.js"},{"path":"src/git.ts","kind":"import-statement","original":"./git.js"},{"path":"src/gui.ts","kind":"import-statement","original":"./gui.js"},{"path":"src/installDependencies.ts","kind":"import-statement","original":"./installDependencies.js"},{"path":"src/logNextSteps.ts","kind":"import-statement","original":"./logNextSteps.js"},{"path":"src/userOptions.ts","kind":"import-statement","original":"./userOptions.js"},{"path":"src/utils.ts","kind":"import-statement","original":"./utils.js"}],"format":"esm"}},"outputs":{"dist/index.js.map":{"imports":[],"exports":[],"inputs":{},"bytes":30480},"dist/index.js":{"imports":[{"path":"path","kind":"import-statement","external":true},{"path":"fs-extra","kind":"import-statement","external":true},{"path":"ora","kind":"import-statement","external":true},{"path":"inquirer","kind":"import-statement","external":true},{"path":"path","kind":"import-statement","external":true},{"path":"url","kind":"import-statement","external":true},{"path":"figlet","kind":"import-statement","external":true},{"path":"chalk","kind":"import-statement","external":true},{"path":"gradient-string","kind":"import-statement","external":true},{"path":"chalk","kind":"import-statement","external":true},{"path":"child_process","kind":"import-statement","external":true},{"path":"execa","kind":"import-statement","external":true},{"path":"fs-extra","kind":"import-statement","external":true},{"path":"inquirer","kind":"import-statement","external":true},{"path":"ora","kind":"import-statement","external":true},{"path":"path","kind":"import-statement","external":true},{"path":"chalk","kind":"import-statement","external":true},{"path":"execa","kind":"import-statement","external":true},{"path":"ora","kind":"import-statement","external":true},{"path":"path","kind":"import-statement","external":true},{"path":"commander","kind":"import-statement","external":true},{"path":"inquirer","kind":"import-statement","external":true},{"path":"asciify-image","kind":"import-statement","external":true},{"path":"path","kind":"import-statement","external":true}],"exports":[],"entryPoint":"src/index.ts","inputs":{"src/createProject.ts":{"bytesInOutput":1110},"src/constants.ts":{"bytesInOutput":212},"src/gui.ts":{"bytesInOutput":442},"src/git.ts":{"bytesInOutput":1887},"src/installDependencies.ts":{"bytesInOutput":894},"src/utils.ts":{"bytesInOutput":710},"src/logNextSteps.ts":{"bytesInOutput":222},"src/userOptions.ts":{"bytesInOutput":2589},"src/index.ts":{"bytesInOutput":363}},"bytes":8450}}}
+{
+  "inputs": {
+    "src/constants.ts": {
+      "bytes": 425,
+      "imports": [
+        { "path": "path", "kind": "import-statement", "external": true },
+        { "path": "url", "kind": "import-statement", "external": true },
+        { "path": "figlet", "kind": "import-statement", "external": true }
+      ],
+      "format": "esm"
+    },
+    "src/gui.ts": {
+      "bytes": 1095,
+      "imports": [
+        { "path": "chalk", "kind": "import-statement", "external": true },
+        {
+          "path": "gradient-string",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "src/constants.ts",
+          "kind": "import-statement",
+          "original": "./constants.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/createProject.ts": {
+      "bytes": 2338,
+      "imports": [
+        { "path": "path", "kind": "import-statement", "external": true },
+        { "path": "fs-extra", "kind": "import-statement", "external": true },
+        { "path": "ora", "kind": "import-statement", "external": true },
+        { "path": "inquirer", "kind": "import-statement", "external": true },
+        {
+          "path": "src/constants.ts",
+          "kind": "import-statement",
+          "original": "./constants.js"
+        },
+        {
+          "path": "src/gui.ts",
+          "kind": "import-statement",
+          "original": "./gui.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/git.ts": {
+      "bytes": 3803,
+      "imports": [
+        { "path": "chalk", "kind": "import-statement", "external": true },
+        {
+          "path": "child_process",
+          "kind": "import-statement",
+          "external": true
+        },
+        { "path": "execa", "kind": "import-statement", "external": true },
+        { "path": "fs-extra", "kind": "import-statement", "external": true },
+        { "path": "inquirer", "kind": "import-statement", "external": true },
+        { "path": "ora", "kind": "import-statement", "external": true },
+        { "path": "path", "kind": "import-statement", "external": true },
+        {
+          "path": "src/gui.ts",
+          "kind": "import-statement",
+          "original": "./gui.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/utils.ts": {
+      "bytes": 1545,
+      "imports": [
+        { "path": "path", "kind": "import-statement", "external": true }
+      ],
+      "format": "esm"
+    },
+    "src/installDependencies.ts": {
+      "bytes": 2213,
+      "imports": [
+        { "path": "chalk", "kind": "import-statement", "external": true },
+        { "path": "execa", "kind": "import-statement", "external": true },
+        { "path": "ora", "kind": "import-statement", "external": true },
+        {
+          "path": "src/gui.ts",
+          "kind": "import-statement",
+          "original": "./gui.js"
+        },
+        {
+          "path": "src/utils.ts",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/logNextSteps.ts": {
+      "bytes": 610,
+      "imports": [
+        {
+          "path": "src/gui.ts",
+          "kind": "import-statement",
+          "original": "./gui.js"
+        },
+        {
+          "path": "./userOptions.js",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "src/utils.ts",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/userOptions.ts": {
+      "bytes": 4666,
+      "imports": [
+        { "path": "commander", "kind": "import-statement", "external": true },
+        { "path": "type-fest", "kind": "import-statement", "external": true },
+        { "path": "inquirer", "kind": "import-statement", "external": true },
+        {
+          "path": "asciify-image",
+          "kind": "import-statement",
+          "external": true
+        },
+        { "path": "path", "kind": "import-statement", "external": true },
+        {
+          "path": "src/constants.ts",
+          "kind": "import-statement",
+          "original": "./constants.js"
+        },
+        {
+          "path": "src/utils.ts",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        },
+        {
+          "path": "src/gui.ts",
+          "kind": "import-statement",
+          "original": "./gui.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/index.ts": {
+      "bytes": 1116,
+      "imports": [
+        {
+          "path": "src/createProject.ts",
+          "kind": "import-statement",
+          "original": "./createProject.js"
+        },
+        {
+          "path": "src/git.ts",
+          "kind": "import-statement",
+          "original": "./git.js"
+        },
+        {
+          "path": "src/gui.ts",
+          "kind": "import-statement",
+          "original": "./gui.js"
+        },
+        {
+          "path": "src/installDependencies.ts",
+          "kind": "import-statement",
+          "original": "./installDependencies.js"
+        },
+        {
+          "path": "src/logNextSteps.ts",
+          "kind": "import-statement",
+          "original": "./logNextSteps.js"
+        },
+        {
+          "path": "src/userOptions.ts",
+          "kind": "import-statement",
+          "original": "./userOptions.js"
+        },
+        {
+          "path": "src/utils.ts",
+          "kind": "import-statement",
+          "original": "./utils.js"
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "dist/index.js.map": {
+      "imports": [],
+      "exports": [],
+      "inputs": {},
+      "bytes": 30480
+    },
+    "dist/index.js": {
+      "imports": [
+        { "path": "path", "kind": "import-statement", "external": true },
+        { "path": "fs-extra", "kind": "import-statement", "external": true },
+        { "path": "ora", "kind": "import-statement", "external": true },
+        { "path": "inquirer", "kind": "import-statement", "external": true },
+        { "path": "path", "kind": "import-statement", "external": true },
+        { "path": "url", "kind": "import-statement", "external": true },
+        { "path": "figlet", "kind": "import-statement", "external": true },
+        { "path": "chalk", "kind": "import-statement", "external": true },
+        {
+          "path": "gradient-string",
+          "kind": "import-statement",
+          "external": true
+        },
+        { "path": "chalk", "kind": "import-statement", "external": true },
+        {
+          "path": "child_process",
+          "kind": "import-statement",
+          "external": true
+        },
+        { "path": "execa", "kind": "import-statement", "external": true },
+        { "path": "fs-extra", "kind": "import-statement", "external": true },
+        { "path": "inquirer", "kind": "import-statement", "external": true },
+        { "path": "ora", "kind": "import-statement", "external": true },
+        { "path": "path", "kind": "import-statement", "external": true },
+        { "path": "chalk", "kind": "import-statement", "external": true },
+        { "path": "execa", "kind": "import-statement", "external": true },
+        { "path": "ora", "kind": "import-statement", "external": true },
+        { "path": "path", "kind": "import-statement", "external": true },
+        { "path": "commander", "kind": "import-statement", "external": true },
+        { "path": "inquirer", "kind": "import-statement", "external": true },
+        {
+          "path": "asciify-image",
+          "kind": "import-statement",
+          "external": true
+        },
+        { "path": "path", "kind": "import-statement", "external": true }
+      ],
+      "exports": [],
+      "entryPoint": "src/index.ts",
+      "inputs": {
+        "src/createProject.ts": { "bytesInOutput": 1110 },
+        "src/constants.ts": { "bytesInOutput": 212 },
+        "src/gui.ts": { "bytesInOutput": 442 },
+        "src/git.ts": { "bytesInOutput": 1887 },
+        "src/installDependencies.ts": { "bytesInOutput": 894 },
+        "src/utils.ts": { "bytesInOutput": 710 },
+        "src/logNextSteps.ts": { "bytesInOutput": 222 },
+        "src/userOptions.ts": { "bytesInOutput": 2589 },
+        "src/index.ts": { "bytesInOutput": 363 }
+      },
+      "bytes": 8450
+    }
+  }
+}
