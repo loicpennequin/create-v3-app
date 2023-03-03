@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.1.7
+
+### Patch Changes
+
+- [`9670c22`](https://github.com/loicpennequin/create-v3-app/commit/9670c22186f8565a3e030a8eab49390702ff1968) Thanks [@loicpennequin](https://github.com/loicpennequin)! - updated README
+
 ## 0.1.6
 
 ### Patch Changes
