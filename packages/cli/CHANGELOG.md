@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.2.0
+
+### Minor Changes
+
+- [`c9459b6`](https://github.com/loicpennequin/create-v3-app/commit/c9459b6cde60c98da95c496d245cae4f1ea8e479) Thanks [@loicpennequin](https://github.com/loicpennequin)! - added cva-ui
+
 ## 0.1.7
 
 ### Patch Changes
