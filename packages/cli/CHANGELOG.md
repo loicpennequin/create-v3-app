@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.2.1
+
+### Patch Changes
+
+- [`7d90e43`](https://github.com/loicpennequin/create-v3-app/commit/7d90e4372fbbda038b941575dd1fe55716590dd5) Thanks [@loicpennequin](https://github.com/loicpennequin)! - removed localtunnel module and updated nuxt version
+
 ## 0.2.0
 
 ### Minor Changes
