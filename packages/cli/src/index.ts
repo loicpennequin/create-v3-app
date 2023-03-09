@@ -13,7 +13,7 @@ import { parseNameAndPath } from './utils.js';
   const options = await getUserOptions();
   const [projectName, projectDir] = parseNameAndPath(options.name);
 
-  await createProject({ projectName, projectDir });
+  await createProject({ projectName, projectDir, layers: options.layers });
 
   if (!options.noInstall) {
     await installDependencies(projectDir);

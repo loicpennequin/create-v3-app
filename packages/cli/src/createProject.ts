@@ -4,14 +4,16 @@ import ora, { Ora } from 'ora';
 import inquirer from 'inquirer';
 import { PKG_ROOT } from './constants.js';
 import { info, success, warn } from './gui.js';
+import { CliOptions } from './userOptions.js';
 
 export type CreateProjectOptions = {
   projectName?: string;
   projectDir: string;
+  layers: CliOptions['layers'];
 };
 
 const cleanupProjectDir = async (
-  { projectName, projectDir }: CreateProjectOptions,
+  { projectName, projectDir }: Omit<CreateProjectOptions, 'layers'>,
   spinner: Ora
 ) => {
   if (!fs.existsSync(projectDir)) return;
@@ -69,9 +71,20 @@ const renameDotFiles = (projectDir: string) => {
   });
 };
 
+const updatePackageJson = (projectDir: string, name?: string) => {
+  if (!name) return;
+  const actualName = name === '.' ? 'my-v3-app' : name;
+  const pkgJsonPath = resolve(projectDir, 'package.json');
+
+  const pkgJson = fs.readJSONSync(pkgJsonPath);
+  pkgJson.name = actualName;
+  fs.writeJSONSync(pkgJsonPath, pkgJson, { spaces: 2 });
+};
+
 export const createProject = async ({
   projectName,
-  projectDir
+  projectDir,
+  layers
 }: CreateProjectOptions) => {
   const spinner = ora(`Creating project in: ${projectDir}...\n`).start();
 
@@ -82,8 +95,13 @@ export const createProject = async ({
   const srcDir = resolve(PKG_ROOT, 'template');
   fs.copySync(srcDir, projectDir);
   renameDotFiles(projectDir);
+  updatePackageJson(projectDir, projectName);
+
+  if (!layers.cvaUi) {
+    const cvaUiDir = resolve(projectDir, 'src/layers/ui');
+    fs.rmSync(cvaUiDir, { recursive: true, force: true });
+  }
 
   const scaffoldedName = projectName === '.' ? 'App' : info(projectName);
-
   spinner.succeed(`${scaffoldedName} ${success('scaffolded successfully!')}\n`);
 };

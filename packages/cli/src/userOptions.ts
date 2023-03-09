@@ -11,12 +11,18 @@ export type CliOptions = {
   name: string;
   noGit: boolean;
   noInstall: boolean;
+  layers: {
+    cvaUi: boolean;
+  };
 };
 
 const defaults: CliOptions = {
   name: DEFAULT_APP_NAME,
   noGit: false,
-  noInstall: false
+  noInstall: false,
+  layers: {
+    cvaUi: false
+  }
 };
 
 const checkInteractive = async () => {
@@ -116,7 +122,8 @@ const runCli = async () => {
   return Object.assign(cliArgs, {
     name: cliArgs.name || (await promptAppName()),
     noGit: cliArgs.noGit || !(await promptGit()),
-    noInstall: cliArgs.noGit || !(await promptInstall())
+    noInstall: cliArgs.noGit || !(await promptInstall()),
+    layers: {}
   });
 };
 
@@ -139,7 +146,7 @@ const promptTailwind = async () => {
       height: 20
     });
     console.log(duck);
-    logger.info('Wrong choice KEKW');
+    logger.info('Wrong choice');
     logger.info(
       "Create V3 App believes in web fundamentals and doesn't support tailwind out of the box."
     );
@@ -147,9 +154,27 @@ const promptTailwind = async () => {
     logger.info(
       "Don't worry, you can easily setup tailwind yourself by adding the tailwind nuxt module."
     );
-  } else {
-    logger.success('Ah, I see you are a person of culture.');
   }
+};
+
+const promptCvaUi = async () => {
+  logger.info(
+    'Would you like to add CVA-UI to jumpstart your component authoring?'
+  );
+  logger.info(
+    'This will add a baseline set of components to solve common UI patterns in the src/layers/ui directory'
+  );
+  logger.info(
+    'This is not a library. After intstallation, the code will be yours: Feel free to tweak, modify, enhance of even delete whatever you want !'
+  );
+  const { cvaUi } = await inquirer.prompt<{ cvaUi: boolean }>({
+    name: 'cvaUi',
+    type: 'confirm',
+    message: 'Add CVA UI ?',
+    default: true
+  });
+
+  return cvaUi;
 };
 
 export const getUserOptions = async (): Promise<CliOptions> => {
@@ -158,6 +183,7 @@ export const getUserOptions = async (): Promise<CliOptions> => {
 
   const options = interactive ? await runCli() : defaults;
   await promptTailwind();
+  options.layers.cvaUi = await promptCvaUi();
 
   return options;
 };

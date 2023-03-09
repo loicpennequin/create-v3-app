@@ -1,6 +1,23 @@
 import OpenProps from 'open-props';
+import fs from 'fs';
+import { join } from 'path';
+
+const layersDir = join(process.cwd(), 'src/layers');
+const layers = fs
+  .readdirSync(layersDir)
+  .filter((fileOrDir) => {
+    const isDirectory = fs.lstatSync(join(layersDir, fileOrDir)).isDirectory();
+    const hasNuxtConfig = fs.existsSync(
+      join(layersDir, fileOrDir, 'nuxt.config.ts')
+    );
+
+    return isDirectory && hasNuxtConfig;
+  })
+  .map((dir) => `./src/layers/${dir}`);
 
 export default defineNuxtConfig({
+  extends: layers,
+
   srcDir: 'src',
 
   runtimeConfig: {
@@ -26,15 +43,24 @@ export default defineNuxtConfig({
   css: ['open-props/postcss/normalize', '~/styles/theme.css'],
 
   modules: [
+    '@vue-macros/nuxt',
     '@nuxtjs/i18n',
+    '@pinia/nuxt',
     '@nuxtjs/device',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     'nuxt-icon',
     'nuxt-typed-router',
     '@nuxt/image-edge',
-    '@sidebase/nuxt-auth'
+    '@sidebase/nuxt-auth',
+    '@nuxt/devtools',
+    '@nuxtus/nuxt-localtunnel'
   ],
+
+  localtunnel: {
+    port: 3000,
+    subdomain: 'cva-ui'
+  },
 
   postcss: {
     plugins: {
@@ -78,5 +104,9 @@ export default defineNuxtConfig({
   auth: {
     basePath: '/api/auth',
     enableSessionRefreshOnWindowFocus: true
+  },
+
+  macros: {
+    betterDefine: true
   }
 });
