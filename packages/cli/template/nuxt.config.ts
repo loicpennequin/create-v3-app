@@ -53,8 +53,7 @@ export default defineNuxtConfig({
     'nuxt-typed-router',
     '@nuxt/image-edge',
     '@sidebase/nuxt-auth',
-    '@nuxt/devtools',
-    '@nuxtus/nuxt-localtunnel'
+    '@nuxt/devtools'
   ],
 
   localtunnel: {
