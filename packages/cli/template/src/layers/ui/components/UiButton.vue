@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
 const attrs = useAttrs();
 
 const tag = computed(() => {
-  if (attrs.to) return NuxtLink;
+  if (props.to) return NuxtLink;
   if (attrs.href) return 'a';
 
   return 'button';
@@ -35,6 +35,7 @@ const tag = computed(() => {
   <component
     :is="tag"
     class="ui-button-base"
+    :to="props.to"
     :class="[props.size, props.variant]"
   >
     <Icon
@@ -149,7 +150,7 @@ const tag = computed(() => {
   }
 
   & > .icon {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-4);
     aspect-ratio: 1;
     display: block;
   }

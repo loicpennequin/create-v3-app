@@ -11,7 +11,9 @@ const props = withDefaults(defineProps<{ as?: string }>(), { as: 'div' });
 <style scoped>
 .ui-center {
   height: 100%;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

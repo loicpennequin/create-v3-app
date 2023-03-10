@@ -43,11 +43,11 @@ const vModel = useVModel(props, 'modelValue', emit);
     :class="[props.size, props, isError && 'error']"
     v-bind="wrapperAttrs"
   >
-    <div v-if="slots.left || props.leftIcon" class="left">
+    <UiCenter v-if="slots.left || props.leftIcon" class="left">
       <slot name="left">
         <Icon v-if="props.leftIcon" :name="props.leftIcon" class="icon" />
       </slot>
-    </div>
+    </UiCenter>
     <!--  eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
     <input
       :id="props.id"
@@ -57,11 +57,11 @@ const vModel = useVModel(props, 'modelValue', emit);
       v-bind="inputAttrs"
     />
 
-    <div v-if="slots.right || props.rightIcon" class="right">
+    <UiCenter v-if="slots.right || props.rightIcon" class="right">
       <slot name="right">
         <Icon v-if="props.rightIcon" :name="props.rightIcon" class="icon" />
       </slot>
-    </div>
+    </UiCenter>
   </div>
 </template>
 
@@ -107,7 +107,7 @@ const vModel = useVModel(props, 'modelValue', emit);
   }
 
   & .icon {
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-3);
     color: hsl(var(--primary-hsl) / 0.3);
   }
 

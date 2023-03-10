@@ -56,11 +56,6 @@ export default defineNuxtConfig({
     '@nuxt/devtools'
   ],
 
-  localtunnel: {
-    port: 3000,
-    subdomain: 'cva-ui'
-  },
-
   postcss: {
     plugins: {
       './scripts/postcss-jit-fix.js': OpenProps,
