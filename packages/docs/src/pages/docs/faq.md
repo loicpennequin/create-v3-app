@@ -11,9 +11,9 @@ lang: en
 
 💀💀💀
 
-### Can you add x, y ,or z ?
+### Can you add x, y, or z ?
 
-The setup will be more complete in the _Entreprise Edition UltraDeluxe™_ version. What exactly will be in here is absolutely not set in stone at the moment. Discussions welcome !
+The setup will be more complete in the _Enterprise Edition UltraDeluxe™_ version. What exactly will be in here is absolutely not set in stone at the moment. Discussions welcome!
 
 I do however plan on adding a setup for testing in the "light weight" version. Testing is not optional and should be taken seriously in any sizeable application. "Buy safety nets, **AND** guard rails".
 
