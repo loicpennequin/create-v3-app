@@ -27,11 +27,11 @@ This file allows custom settings for your app workspaces. We use it to setup aut
 
 ### 📁prisma
 
-You will find the Prisma schema file in this folder at `/prisma/schema.prisma`. This is where you define your database schema and models, and is used when generating the Prisma Client usint `yarn prisma db push` or `yarn db:sync`.
+You will find the Prisma schema file in this folder at `/prisma/schema.prisma`. This is where you define your database schema and models, and is used when generating the Prisma Client using `yarn prisma db push` or `yarn db:sync`.
 
 ### 📁scripts
 
-This folder would contain external scripts you would need for tooling, like custom vite plugins for example. It comes with a `postcss-jit-fix` that is a fork of the [PostCSS-jit-props](https://github.com/GoogleChromeLabs/postcss-jit-props) plugin, to add supporte for Vue's `<style scoped >`.
+This folder would contain external scripts you would need for tooling, like custom vite plugins for example. It comes with a `postcss-jit-fix` that is a fork of the [PostCSS-jit-props](https://github.com/GoogleChromeLabs/postcss-jit-props) plugin, to add support for Vue's `<style scoped >`.
 
 ### 📁src/components
 
@@ -68,7 +68,7 @@ See [the plugins folder in the Nuxt documentation](https://nuxt.com/docs/guide/d
 #### 📝trpc.ts
 
 This file is the front-end entrypoint to tRPC.
-We provide our own fetch methodto leverage the use of Nuxt's $fetch, which directly calls your back end code during SSR, instead of making an additional HTTP request.
+We provide our own fetch method to leverage the use of Nuxt's $fetch, which directly calls your back end code during SSR, instead of making an additional HTTP request.
 `trpc-nuxt` tries to do this as well, but it is unfortunately done incorrectly as we lose error information with some error types (go bother them !)
 
 #### 📝vue-query.ts
@@ -116,7 +116,7 @@ This file contains your Prisma database client.
 
 ### 📁src/styles
 
-This is where you would put css files. Any CSS variable declared in the `styles/theme.css` will receive intellisense toprovide autocomplete in all of your css files / vue style blocks.
+This is where you would put css files. Any CSS variable declared in the `styles/theme.css` will receive intellisense to provide autocomplete in all of your css files / vue style blocks.
 
 ⚠️ If you add more files, and want them available globally, don't forget to add them to your nuxt config or import them manually in your app.vue
 
@@ -156,4 +156,4 @@ See [the nuxt.config.ts file in the Nuxt documentation](https://nuxt.com/docs/gu
 
 ### 📝ts.config.json
 
-The tsconfig.json file is used to configure TypeScript. It extends thnuxt config generated in the `.nuxt` folder that is created whn you run `yarn dev`.
+The tsconfig.json file is used to configure TypeScript. It extends the nuxt config generated in the `.nuxt` folder that is created whn you run `yarn dev`.
