@@ -51,7 +51,7 @@ yarn create v3-app
 pnpm create v3-app@latest
 ```
 
-<h2 id="documentation">Documentation</h2>
+<h2 id="docs">Documentation</h2>
 
 For more information please refer to the [documentation](https://create-v3-app.vercel.app) (still in progress)
 
