@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.2.4
+
+### Patch Changes
+
+- [`ad88107`](https://github.com/loicpennequin/create-v3-app/commit/ad88107ea0ad116529d0325d02287c89a2229397) Thanks [@loicpennequin](https://github.com/loicpennequin)! - removed the tailwind joke: the world wasn't ready pepeHands
+
 ## 0.2.3
 
 ### Patch Changes
