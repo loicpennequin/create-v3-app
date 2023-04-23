@@ -8,8 +8,8 @@ const localePath = useLocalePath();
 <template>
   <div class="layout">
     <header>
-      <UiContainer size="xl" class="header-inner">
-        <h1><NuxtLink :to="localePath('/')">Create V3 App UI</NuxtLink></h1>
+      <div size="xl" class="header-inner">
+        <h1><NuxtLink :to="localePath('/')">Create V3 App</NuxtLink></h1>
         <nav>
           <NuxtLink :to="localePath('/style-guide')">Style Guide</NuxtLink>
           <DarkModeToggle />
@@ -20,7 +20,7 @@ const localePath = useLocalePath();
             <Icon name="circle-flags:fr" />
           </NuxtLink>
         </nav>
-      </UiContainer>
+      </div>
     </header>
 
     <slot />
@@ -67,6 +67,9 @@ const localePath = useLocalePath();
   justify-content: space-between;
   align-items: center;
   padding: var(--size-2) var(--size-5);
+  width: 100%;
+  max-width: var(--size-lg);
+  margin-inline: auto;
 
   & > nav {
     display: flex;

@@ -127,63 +127,32 @@ const runCli = async () => {
   });
 };
 
-const promptTailwind = async () => {
-  const { language } = await inquirer.prompt<{ language: string }>({
-    name: 'language',
-    type: 'list',
-    message: 'Which styling solutions would you like to use ?',
-    choices: [
-      { name: 'Open Props', value: 'openprops', short: 'openprops' },
-      { name: 'Tailwind', value: 'tailwind', short: 'tailwind' }
-    ],
-    default: 'openprops'
-  });
+// const promptCvaUi = async () => {
+//   logger.info(
+//     'Would you like to add CVA-UI to jumpstart your component authoring?'
+//   );
+//   logger.info(
+//     'This will add a baseline set of components to solve common UI patterns in the src/layers/ui directory'
+//   );
+//   logger.info(
+//     'This is not a library. After intstallation, the code will be yours: Feel free to tweak, modify, enhance of even delete whatever you want !'
+//   );
+//   const { cvaUi } = await inquirer.prompt<{ cvaUi: boolean }>({
+//     name: 'cvaUi',
+//     type: 'confirm',
+//     message: 'Add CVA UI ?',
+//     default: true
+//   });
 
-  if (language === 'tailwind') {
-    const duck = await asciify(resolve(PKG_ROOT, 'src/assets/duck.jpg'), {
-      fit: 'box',
-      width: 20,
-      height: 20
-    });
-    console.log(duck);
-    logger.info('Wrong choice');
-    logger.info(
-      "Create V3 App believes in web fundamentals and doesn't support tailwind out of the box."
-    );
-    logger.info('See https://create-v3-app.vercel.app/docs/why-no-tailwind');
-    logger.info(
-      "Don't worry, you can easily setup tailwind yourself by adding the tailwind nuxt module."
-    );
-  }
-};
-
-const promptCvaUi = async () => {
-  logger.info(
-    'Would you like to add CVA-UI to jumpstart your component authoring?'
-  );
-  logger.info(
-    'This will add a baseline set of components to solve common UI patterns in the src/layers/ui directory'
-  );
-  logger.info(
-    'This is not a library. After intstallation, the code will be yours: Feel free to tweak, modify, enhance of even delete whatever you want !'
-  );
-  const { cvaUi } = await inquirer.prompt<{ cvaUi: boolean }>({
-    name: 'cvaUi',
-    type: 'confirm',
-    message: 'Add CVA UI ?',
-    default: true
-  });
-
-  return cvaUi;
-};
+//   return cvaUi;
+// };
 
 export const getUserOptions = async (): Promise<CliOptions> => {
   const { shouldContinue, interactive } = await checkInteractive();
   if (!shouldContinue) process.exit(0);
 
   const options = interactive ? await runCli() : defaults;
-  await promptTailwind();
-  options.layers.cvaUi = await promptCvaUi();
+  // options.layers.cvaUi = await promptCvaUi();
 
   return options;
 };
