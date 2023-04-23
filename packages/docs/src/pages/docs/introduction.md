@@ -11,7 +11,7 @@ Create V3 App is a CLI tool to generate a starter kit for a Nuxt Application. It
 
 The core pieces are [**Nuxt**](https://nuxt.com/) and [**TypeScript**](https://typescriptlang.org/). The setup of your back end logic is bootstrapped by using [**tRPC**](https://trpc.io/), [**Prisma**](https://prisma.io/), and [**Auth.js**](https://authjs.dev/). The styling and implementation of your design system made super easy by the excellent CSS Variables theme from [**Open Props**](https://open-props.style/). Internationalization is also made a breeze with the setup of [**Vue-i18n**](https://vue-i18n.intlify.dev/)
 
-### So... what is create-V3-app? A template?
+### So... what is create-V3-app? A template ?
 
 <img src="/images/yes.jpg" class="image--small" />
 

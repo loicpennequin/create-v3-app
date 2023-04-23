@@ -1,5 +1,11 @@
 # create-v3-app
 
+## 0.2.3
+
+### Patch Changes
+
+- [`9f7a3b3`](https://github.com/loicpennequin/create-v3-app/commit/9f7a3b30cc1b35b477f75eb68bf1edd815d15676) Thanks [@loicpennequin](https://github.com/loicpennequin)! - fix peer deps issue for vue version
+
 ## 0.2.2
 
 ### Patch Changes
